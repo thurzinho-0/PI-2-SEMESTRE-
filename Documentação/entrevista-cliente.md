@@ -70,7 +70,7 @@ Coletar informações e expectativas para o desenvolvimento de um site com foco 
 
 - Chronic: https://chronicstreet.com.br  
 - SUFGANG: https://sufgang.com.br  
-- High: https://www.usehigh.com.br
+- High: https://highcompanybr.com
 
 ---
 
