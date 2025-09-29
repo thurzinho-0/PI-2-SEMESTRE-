@@ -65,14 +65,6 @@ Coletar informações e expectativas para o desenvolvimento de um site com foco 
 
 ---
 
-## 📝 Observações Finais
-
-- Cliente tem uma visão clara do que deseja: um site funcional, com e-commerce e estética alinhada com o estilo streetwear.  
-- Valorização da exclusividade e praticidade.  
-- Desejo por autonomia na atualização do conteúdo do site.  
-- Reforçada a importância da integração com WhatsApp para facilitar pedidos.
-
----
 
 ## 🔗 Referências Visuais
 
