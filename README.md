@@ -40,7 +40,8 @@ Hoje, sempre que alguém pede fotos de todas as camisetas, ele perde muito tempo
 ---
 
 ## 💡 Tecnologias  
-*(a definir – atualizaremos durante o desenvolvimento)*  
+
+- Figma - UI/UX🛠️
 
 ---
 
