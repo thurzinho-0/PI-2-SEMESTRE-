@@ -68,7 +68,7 @@ Coletar informações e expectativas para o desenvolvimento de um site com foco 
 
 ## 🔗 Referências Visuais
 
-- Chronic: https://chronicstreet.com.br  
+- Chronic: https://www.chronic.com.br/
 - SUFGANG: https://sufgang.com.br  
 - High: https://highcompanybr.com
 
