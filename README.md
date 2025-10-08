@@ -1,63 +1,91 @@
-# 🚀 Projeto – Engenharia de Software II  
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/1048/1048946.png" width="120" alt="Logo Pica Pau Software">
+</p>
 
-## 👨‍💻 Empresa Fictícia  
-**Nome:** 🪵 Pica Pau Software  
+<h1 align="center">🪵 Pica Pau Software</h1>
+<p align="center">Desenvolvendo soluções ágeis, criativas e eficientes 🚀</p>
 
-**Integrantes do Grupo:**  
-- Mateus Cesar – Desenvolvedor  
-- Johnn – Desenvolvedor  
-- Benevides – Desenvolvedor  
-- Arthur Marques – Product Owner (P.O) / Desenvolvedor  
+---
+
+## 🚀 Projeto – Engenharia de Software II  
+
+### 👨‍💻 Equipe Responsável  
+| Integrante | Função |
+|-------------|--------|
+| 🧠 **Arthur Marques** | Product Owner (P.O) / Desenvolvedor |
+| 💻 **Benevides** | Desenvolvedor Front-end |
+| ⚙️ **Johnn** | Desenvolvedor Back-end |
+| 🗄️ **Mateus Cesar** | Desenvolvedor Back-end |
 
 ---
 
 ## 🏪 Cliente  
-**Nome da empresa:** **CSX STORE**  
+
+**Nome da Empresa:** **CSX STORE**  
 **Proprietário:** Caio  
 **Segmento:** Loja de Streetwear  
+
+🧢 A **CSX STORE** é uma marca voltada ao público urbano, que busca estilo, praticidade e agilidade no atendimento.  
 
 ---
 
 ## 🎯 Objetivo do Projeto  
-Nosso cliente precisava de mais agilidade no atendimento e organização dos produtos.  
 
-Hoje, sempre que alguém pede fotos de todas as camisetas, ele perde muito tempo enviando uma por uma 📸➡️📱. Isso atrasa as vendas e cansa o processo.  
+Nosso cliente precisava **agilizar o atendimento** e **organizar melhor os produtos**.  
 
-👉 Nossa solução? Criar um **catálogo online inteligente** que:  
-- Mostra os produtos disponíveis e indisponíveis de forma clara 🟢🔴  
-- Permite cadastrar novos itens (nome, tamanho, marca e imagem) ✍️  
-- Dá a opção de editar ou remover produtos facilmente 🗑️  
-- Deixa tudo **bonito, organizado e rápido** para o cliente final ⚡  
+Atualmente, Caio precisa enviar fotos manualmente de todas as camisetas para cada cliente, o que toma muito tempo 📸➡️📱.  
+Nossa proposta resolve isso com um **catálogo online inteligente**, onde o cliente poderá visualizar tudo rapidamente.
 
----
-
-## 🛠️ Funcionalidades Planejadas  
-- ✅ Catálogo de produtos online  
-- ✅ Filtro de disponibilidade (em estoque ou não)  
-- ✅ Cadastro, edição e remoção de produtos  
-- ✅ Layout seguindo as cores da **logo da CSX STORE** para reforçar a identidade da marca  
+### 💡 Solução:
+- 🟢 Mostrar produtos disponíveis e 🔴 indisponíveis  
+- 🧾 Cadastro, edição e exclusão de produtos  
+- 🎨 Interface moderna, baseada nas cores da **logo da CSX STORE**  
+- ⚡ Experiência rápida e intuitiva  
 
 ---
 
-## 💡 Tecnologias  
+## 🧱 Funcionalidades  
 
-- Figma - UI/UX🛠️
+✅ Catálogo de produtos online  
+✅ Filtro de disponibilidade (em estoque ou não)  
+✅ Cadastro, edição e remoção de produtos  
+✅ Layout responsivo e visual moderno  
+
+---
+
+## 💻 Tecnologias Utilizadas  
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="60" alt="HTML5"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="60" alt="CSS3"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="60" alt="PHP"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="60" alt="MySQL"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="60" alt="Figma"/>
+</p>
 
 ---
 
 ## 🎤 Entrevista com o Cliente  
 
-Na conversa com **Caio**, dono da **CSX STORE**, percebemos logo o ponto de dor:  
-> "O que mais dá trabalho é quando alguém pede foto de todas as camisetas que eu tenho. Isso demora um século pra mandar tudo."  
+> 🗣️ **Caio (CSX STORE):**  
+> “O que mais dá trabalho é quando alguém pede foto de todas as camisetas que eu tenho. Isso demora um século pra mandar tudo.”  
 
-Foi a partir dessa fala que entendemos: o problema não era só vender online, mas sim **ter praticidade**.  
+Com base nisso, percebemos que o problema não era apenas vender online, mas **ter praticidade** e **agilidade** no processo de atendimento.  
 
-Por isso, desenhamos a ideia de um **catálogo digital prático, direto e estiloso**, que vai deixar o atendimento muito mais rápido e profissional.  
-
-O cliente também reforçou que o site deve **seguir as cores da logo**, garantindo que a identidade da loja esteja presente em cada detalhe.  
+Assim surgiu a ideia do **catálogo digital prático e estiloso**, refletindo o espírito da marca **CSX STORE**.
 
 ---
 
-## ✨ Conclusão  
-Esse projeto não é apenas um exercício de programação. Ele nasceu de uma **necessidade real** e traz uma solução que vai **economizar tempo, facilitar**
+## 🧠 Conclusão  
 
+Esse projeto vai muito além de um trabalho acadêmico — ele representa uma **solução real** criada por uma equipe comprometida com resultados e inovação.  
+
+> 💬 “Na Pica Pau Software, transformamos ideias em código, e código em experiência.”  
+
+---
+
+<p align="center">
+  <img src="https://media.tenor.com/x8v1oNUOmg4AAAAd/pica-pau-woody-woodpecker.gif" width="150" alt="Pica Pau">
+</p>
+
+<p align="center">Feito com 💛 por <b>Pica Pau Software</b> 🪵</p>
