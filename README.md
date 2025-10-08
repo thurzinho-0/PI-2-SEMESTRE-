@@ -85,7 +85,8 @@ Esse projeto vai muito além de um trabalho acadêmico — ele representa uma **
 ---
 
 <p align="center">
-  <img src="https://media.tenor.com/x8v1oNUOmg4AAAAd/pica-pau-woody-woodpecker.gif" width="150" alt="Pica Pau">
+  <img src="https://media.tenor.com/x8v1oNUOmg4AAAAd/pica-pau-woody-woodpecker.gif" width="200" alt="Pica Pau">
 </p>
+
 
 <p align="center">Feito com 💛 por <b>Pica Pau Software</b> 🪵</p>
