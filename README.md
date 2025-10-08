@@ -83,9 +83,8 @@ Esse projeto vai muito além de um trabalho acadêmico — ele representa uma **
 > 💬 “Na Pica Pau Software, transformamos ideias em código, e código em experiência.”  
 
 ---
-
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif" width="200" alt="Pica Pau Animado">
+  <img src="https://media.tenor.com/-fT7jlY3f0AAAAAd/cheloman.gif" width="200" alt="GIF Cheloman">
 </p>
 
 
