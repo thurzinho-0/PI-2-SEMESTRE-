@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ytimg.com/vi/upC7HavJ6DQ/maxresdefault.jpg" width="120" alt="Logo Pica Pau Software">
+  <img src="https://i.ytimg.com/vi/upC7HavJ6DQ/maxresdefault.jpg" width="200" alt="Logo Pica Pau Software">
 </p>
 
 <h1 align="center"> Pica Pau Software</h1>
