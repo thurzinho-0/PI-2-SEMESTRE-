@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cx Store Anúncios</title>
+<!--
+  Este código foi desenvolvido com base na análise visual da imagem enviada ('image.jpg')
+  e também levando em conta boas práticas e inspirações encontradas em canais brasileiros de programação no YouTube,
+  que produzem conteúdos didáticos sobre HTML, CSS e dashboards para web.
+
+  Canais recomendados e usados como referência de aprendizado para este tipo de layout são:
+  - Curso em Vídeo (Gustavo Guanabara): https://www.youtube.com/@CursoemVideo
+  - Danki Code: https://www.youtube.com/@DankiCode
+  - Programação Web: https://www.youtube.com/@programacaoweb
+  - Filipe Deschamps: https://www.youtube.com/@FilipeDeschamps
+  - Rafaella Ballerini: https://www.youtube.com/@rafaellaballerini
+
+  As decisões de código, estrutura e estilo foram feitas pelo autor observando a imagem e utilizando conhecimentos adquiridos nesses canais.
+-->
+
+<style>
+  /* ==============================
+     ESTILOS GERAIS DA PÁGINA
+     ============================== */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
+    margin: 0 auto;
+    max-width: 1200px; /* Limita a largura máxima para centralizar o conteúdo */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Fundo neutro */
+  }
+
+  /* ==============================
+     CABEÇALHO E LOGO
+     ============================== */
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding-top: 80px; /* Espaço extra para os ícones fixos no topo */
+  }
+  header img {
+    height: 60px;
+    max-width: 100%; /* Mantém o logo responsivo */
+  }
+
+  /* ==============================
+     ÍCONES FIXOS NO TOPO DIREITO
+     ============================== */
+  .top-icons {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Distância da borda direita */
+    display: flex;
+    gap: 15px; /* Espaçamento entre os ícones */
+    z-index: 1000; /* Garante que fiquem acima de outros elementos */
+  }
+  .top-icons svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    stroke: #999; /* Cor base (cinza) */
+    stroke-width: 2px;
+    transition: stroke 0.3s ease; /* Efeito suave ao passar o mouse */
+  }
+  .top-icons svg:hover {
+    stroke: #d10000; /* Cor vermelha ao passar o mouse */
+  }
+  .top-icons svg.active {
+    stroke: #d10000; /* Ícone ativo destacado em vermelho */
+  }
+
+  /* ==============================
+     TÍTULO DA SEÇÃO
+     ============================== */
+  h2 {
+    border-bottom: 2px solid #d10000;
+    width: 120px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+  }
+
+  /* ==============================
+     CONTAINER DA TABELA
+     ============================== */
+  .table-container {
+    overflow-x: auto; /* Adiciona rolagem horizontal em telas pequenas */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra suave */
+    background-color: #fff;
+  }
+
+  /* ==============================
+     TABELA DE PRODUTOS
+     ============================== */
+  table {
+    width: 100%;
+    min-width: 600px; /* Evita que a tabela "quebre" em telas grandes */
+    border-collapse: collapse;
+    color: #000;
+  }
+
+  /* CABEÇALHO DA TABELA */
+  thead {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+  }
+  thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap; /* Evita quebra de linha */
+  }
+
+  /* CORPO DA TABELA */
+  tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    transition: background-color 0.2s ease; /* Efeito hover suave */
+  }
+  tbody tr:hover {
+    background-color: #f5f5f5; /* Destaque da linha ao passar o mouse */
+  }
+
+  /* ==============================
+     IMAGENS DOS PRODUTOS
+     ============================== */
+  tbody td img.product-img {
+    height: 100px; /* <<< Aumentado (antes era 50px) */
+    width: 100px;
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+    border-radius: 6px; /* Bordas levemente arredondadas */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15); /* Pequena sombra para destaque */
+  }
+
+  /* ==============================
+     COLUNAS ESPECÍFICAS
+     ============================== */
+  .price, .date {
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* ==============================
+     BOTÃO DE STATUS (ATIVO/INATIVO)
+     ============================== */
+  .status-switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+    margin-right: 10px;
+  }
+  .status-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 12px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  input:checked + .slider {
+    background-color: #4CAF50; /* Verde quando ativo */
+  }
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  /* ÍCONE DE EDIÇÃO (LÁPIS) */
+  .icon-edit {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    stroke: #666;
+    stroke-width: 2.5px;
+    fill: none;
+    transition: stroke 0.3s ease;
+    vertical-align: middle;
+  }
+  .icon-edit:hover {
+    stroke: #d10000; /* Destaca o lápis ao passar o mouse */
+  }
+
+  /* LABEL DE STATUS (ATIVO/INATIVO) */
+  .status-label {
+    font-weight: 600;
+    color: #333;
+    padding-left: 8px;
+  }
+  .status-label.ativo {
+    color: #4CAF50; /* Verde */
+  }
+  .status-label.inativo {
+    color: #999; /* Cinza */
+  }
+
+  /* ==============================
+     RESPONSIVIDADE (TABLET E CELULAR)
+     ============================== */
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+      max-width: 100%;
+    }
+    header {
+      padding-top: 100px;
+    }
+    .top-icons {
+      right: 10px;
+      top: 10px;
+      gap: 10px;
+    }
+    .top-icons svg {
+      width: 20px;
+      height: 20px;
+    }
+    h2 {
+      width: 100px;
+      font-size: 1.2em;
+    }
+    thead th,
+    tbody td {
+      padding: 8px 10px;
+      font-size: 0.9em;
+    }
+    .product-img {
+      height: 80px !important;
+      width: 80px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .table-container {
+      font-size: 0.85em;
+    }
+    .status-switch {
+      width: 38px;
+      height: 20px;
+    }
+    .slider:before {
+      height: 16px;
+      width: 16px;
+    }
+    input:checked + .slider:before {
+      transform: translateX(18px);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ==============================
+     CABEÇALHO COM LOGO
+     ============================== -->
+<header>
+  <img src="Logo.jpg" alt="Ex Store Logo" />
+</header>
+
+<!-- ==============================
+     ÍCONES FIXOS (Adicionar / Configurações / Usuário)
+     ============================== -->
+<div class="top-icons">
+  <!-- Ícone de adicionar novo produto -->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+  </svg>
+
+  <!-- Ícone de configurações (ativo) -->
+  <svg class="active" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0-10v2m4-2l1.5 1.5m-9 9L7.5 17.5m8.5-4.5l1.5-1.5m-9-9L7 7"/>
+  </svg>
+
+  <!-- Ícone de perfil do usuário -->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 12a5 5 0 1 0-10 0 5 5 0 0 0 10 0zm0 1v7"/>
+  </svg>
+</div>
+
+<!-- ==============================
+     SEÇÃO DE ANÚNCIOS
+     ============================== -->
+<h2>ANÚNCIOS</h2>
+
+<div class="table-container">
+<table>
+  <thead>
+    <tr>
+      <th>Nome do Produto</th>
+      <th>Imagem</th>
+      <th>Categoria</th>
+      <th>Preço</th>
+      <th>Data</th>
+      <th>Ação</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- Linha 1 -->
+    <tr>
+      <td>TRICOT SUFGANG YING YANG BLACK</td>
+      <td><img class="product-img" src="exemplocamiseta1.JPG" alt="Tricot Ying Yang Black Masculino" /></td>
+      <td>Masculino</td>
+      <td class="price">R$50,00</td>
+      <td class="date">09/10/2025</td>
+      <td>
+        <!-- Switch de status -->
+        <label class="status-switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <!-- Ícone de edição -->
+        <svg class="icon-edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5h6M6 19h6m-4-7h8"/>
+        </svg>
+      </td>
+      <td><span class="status-label inativo">Inativo</span></td>
+    </tr>
+
+    <!-- Linha 2 -->
+    <tr>
+      <td>TRICOT SUFGANG YING YANG BLACK</td>
+      <td><img class="product-img" src="https://i.imgur.com/VdMRBzA.png" alt="Tricot Ying Yang Black Feminino" /></td>
+      <td>Feminino</td>
+      <td class="price">R$309,90</td>
+      <td class="date">09/10/2025</td>
+      <td>
+        <label class="status-switch">
+          <input type="checkbox" checked />
+          <span class="slider"></span>
+        </label>
+        <svg class="icon-edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5h6M6 19h6m-4-7h8"/>
+        </svg>
+      </td>
+      <td><span class="status-label ativo">Ativo</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ==============================
+     SCRIPT PARA ATUALIZAR STATUS DINAMICAMENTE
+     ============================== -->
+<script>
+  // Ao carregar a página
+  document.addEventListener('DOMContentLoaded', function() {
+    const switches = document.querySelectorAll('.status-switch input[type="checkbox"]');
+    
+    switches.forEach(function(switchEl, index) {
+      const label = document.querySelectorAll('.status-label')[index];
+
+      // Função que muda o texto conforme o estado do switch
+      function updateLabel() {
+        if (switchEl.checked) {
+          label.textContent = 'Ativo';
+          label.className = 'status-label ativo';
+        } else {
+          label.textContent = 'Inativo';
+          label.className = 'status-label inativo';
+        }
+      }
+
+      // Quando o usuário clica no botão
+      switchEl.addEventListener('change', updateLabel);
+
+      // Inicializa o estado ao abrir a página
+      updateLabel();
+    });
+  });
+</script>
+
+</body>
+</html>
