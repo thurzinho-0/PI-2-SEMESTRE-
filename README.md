@@ -14,7 +14,7 @@
 |-------------|--------|
 | 🧠 **Arthur Marques** | Product Owner (P.O) / Desenvolvedor |
 | 💻 **Benevides** | Desenvolvedor Front-end |
-| ⚙️ **Johnn** | Desenvolvedor Back-end |
+| ⚙️ **John** | Desenvolvedor Back-end |
 | 🗄️ **Mateus Cesar** | Desenvolvedor Back-end |
 
 ---
