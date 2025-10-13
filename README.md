@@ -21,11 +21,11 @@
 
 ## 🏪 Cliente  
 
-**Nome da Empresa:** **CSX STORE**  
+**Nome da Empresa:** **CX STORE**  
 **Proprietário:** Caio  
 **Segmento:** Loja de Streetwear  
 
-🧢 A **CSX STORE** é uma marca voltada ao público urbano, que busca estilo, praticidade e agilidade no atendimento.  
+🧢 A **CX STORE** é uma marca voltada ao público urbano, que busca estilo, praticidade e agilidade no atendimento.  
 
 ---
 
@@ -72,7 +72,7 @@ Nossa proposta resolve isso com um **catálogo online inteligente**, onde o clie
 
 Com base nisso, percebemos que o problema não era apenas vender online, mas **ter praticidade** e **agilidade** no processo de atendimento.  
 
-Assim surgiu a ideia do **catálogo digital prático e estiloso**, refletindo o espírito da marca **CSX STORE**.
+Assim surgiu a ideia do **catálogo digital prático e estiloso**, refletindo o espírito da marca **CX STORE**.
 
 ---
 
