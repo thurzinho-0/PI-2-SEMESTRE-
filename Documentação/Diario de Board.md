@@ -1,4 +1,4 @@
-# Diario de Board / Planejamento Diário – Projeto E-commerce
+# Diario de Bordo / Planejamento Diário – Projeto E-commerce
 
 ## Equipe
 - **Frontend + Documentação:** Arthur e Benevides (interface, HTML, CSS, JS, layout, documentação)  
