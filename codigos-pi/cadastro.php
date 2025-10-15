@@ -1,24 +1,3 @@
-<?php 
-
-require_once '../php/conexao.php';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    $contato = $_POST['contato'];
-
-
-    $sql = "INSERT INTO usuarios (nome, email, senha, contato) VALUES ('$nome', '$email', '$senha', '$contato')";
-    if (mysqli_query($conn, $sql)) {
-        header("Location: painelanuncio.html");
-    } else {
-        echo "Erro: " . mysqli_error($conn);
-    }
-}
-?>
-
-
-
 <!-- 
   Formulário de cadastro inspirado no canal Dev Club - Programação.
   Peguei essa ideia lá porque eles ensinam de um jeito bem didático a criar formulários modernos e responsivos. 
@@ -31,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Cadastro</title>
-  <link rel="stylesheet" href="../css/cadastro.css">
+  <link rel="stylesheet" href="/assets/css/cadastro.css">
 </head>
 <body>
-  <form class="form" method="POST">
+  <form class="form" method="POST" action="processa_cadastro.php">
     <!-- Logo no topo para identidade visual -->
     <div class="logo">
-      <img src="../imagens/Logo.jpg" alt="Logo">
+      <img src="/assets/imagens/Logo.jpg" alt="Logo">
     </div>
 
     <!-- Campo de telefone/contato -->
