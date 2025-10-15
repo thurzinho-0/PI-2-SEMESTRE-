@@ -1,11 +1,11 @@
 <?php
-$mensagem_erro = ''; 
+// $mensagem_erro = ''; 
 
-if (isset($_GET['erro'])) {
-    if ($_GET['erro'] == 1) {
-        $mensagem_erro = "Usuário ou senha inválidos. Tente novamente.";
-    }
-}
+// if (isset($_GET['erro'])) {
+//     if ($_GET['erro'] == 1) {
+//         $mensagem_erro = "Usuário ou senha inválidos. Tente novamente.";
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,9 +24,9 @@ if (isset($_GET['erro'])) {
         </div>
 
         <?php
-        if (!empty($mensagem_erro)) {
-            echo '<div class="mensagem-erro">' . htmlspecialchars($mensagem_erro) . '</div>';
-        }
+        // if (!empty($mensagem_erro)) {
+        //     echo '<div class="mensagem-erro">' . htmlspecialchars($mensagem_erro) . '</div>';
+        // }
         ?>
 
         <div class="flex-column"><label>Email</label></div>
