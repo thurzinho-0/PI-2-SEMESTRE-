@@ -1,5 +1,5 @@
 # Diario de Bordo / Planejamento Diário – Projeto E-commerce
-
+DATA DE DEFINIÇÃO DE FUNÇÕES 07/10/2025 
 ## Equipe
 - **Frontend + Documentação:** Arthur e Benevides (interface, HTML, CSS, JS, layout, documentação)  
 - **Backend:** John e Mateus (PHP, banco de dados, APIs)  
