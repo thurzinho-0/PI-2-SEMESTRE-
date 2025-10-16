@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Cadastro</title>
-  <link rel="stylesheet" href="/assets/css/cadastro.css">
+  <link rel="stylesheet" href="assets/css/cadastro.css">
 </head>
 <body>
   <form class="form" method="POST" action="processa_cadastro.php">

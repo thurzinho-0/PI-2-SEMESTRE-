@@ -1,3 +1,6 @@
+<?php 
+  require_once ("sessao_cliente.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
