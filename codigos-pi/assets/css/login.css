@@ -31,24 +31,31 @@
     /* ====================
        Container dos inputs com ícones
        ==================== */
-    .inputForm {
-      border: 1.5px solid #ecedec; /* Borda clara por padrão */
-      border-radius: 10px; /* Bordas arredondadas combinando com o formulário */
-      height: 50px; /* Altura padrão de campo */
-      display: flex; /* Para alinhar ícone e input lado a lado */
-      align-items: center; /* Centraliza verticalmente */
-      padding-left: 10px; /* Espaço do lado do ícone */
-      transition: 0.2s; /* Deixa suave quando muda de estado */
-    }
-
-    .input {
-      margin-left: 10px; /* Afasta o input do ícone */
-      border-radius: 10px;
-      border: none; /* Sem borda, só a do container */
-      width: 85%; /* Ocupa quase todo o espaço restante do container */
-      height: 100%; /* Ocupa toda a altura do container */
-    }
-
+       .inputForm {
+        background: #fff; /* Fundo branco dentro do container do input */
+        border: 1.5px solid #ecedec; /* Borda clara padrão */
+        border-radius: 10px; /* Bordas arredondadas para suavizar visual */
+        height: 50px; /* Altura fixa do campo */
+        display: flex; /* Flexbox para alinhar ícone + input */
+        align-items: center; /* Alinha verticalmente ao centro */
+        padding-left: 10px; /* Espaço à esquerda para o ícone */
+        transition: 0.2s ease; /* Transição suave para efeitos */
+      }
+      
+      /* ====================
+         Estilo do campo input dentro do container
+         ==================== */
+      .input {
+        background: transparent; /* Fundo transparente para deixar o container mostrar o fundo */
+        border: none; /* Remove borda do input (fica só a do container) */
+        margin-left: 10px; /* Espaço entre o ícone e o input */
+        width: 85%; /* Ocupa quase todo espaço disponível */
+        height: 100%; /* Preenche a altura do container */
+        padding: 0 10px; /* Espaçamento interno para o texto não colar nas bordas */
+        font-size: 14px; /* Tamanho da fonte legível */
+        outline: none; /* Remove contorno padrão azul do navegador ao focar */
+      }
+      
     .input:focus { outline:none; } /* Remove aquele contorno azul padrão do navegador */
     .inputForm:focus-within { border-color:#2d79f3; } /* Quando clica no input, a borda do container fica azul */
 
