@@ -1,13 +1,13 @@
 <?php
-require_once('sessao_admin.php');
-require_once('../classes/Database.php');
-require_once('../classes/Categoria.php');
+ require_once('sessao_admin.php');
+ require_once('../classes/Database.php');
+ require_once('../classes/Categoria.php');
 
-$database = new Database();
-$db = $database->getConnection();
-$categoria = new Categoria($db);
+ $database = new Database();
+ $db = $database->getConnection();
+ $categoria = new Categoria($db);
 
-$lista_categorias = $categoria->listar();
+ $lista_categorias = $categoria->listar();
 
 ?>
 <!DOCTYPE html>

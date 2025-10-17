@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8"> <!-- Define a codificação de caracteres para português -->
-  <title>Redefinir Senha</title> <!-- Título da página que aparece na aba do navegador -->
+  <meta charset="UTF-8"> 
+  <title>Redefinir Senha</title> 
   <link rel="stylesheet" href="assets/css/redefinicaosenha.css"> <!-- Link para o arquivo CSS externo -->
 </head>
 <body>
-
-  <!-- Container da logo da empresa -->
-  <div class="logo">
-    <img src="./assets/img/Logo.jpg" alt="Logo da Empresa"> <!-- Imagem da logo com texto alternativo -->
-  </div>
-
   <!-- Container principal do formulário -->
   <div class="form">
 
+     <!-- Container da logo da empresa -->
+  <div class="logo">
+    <img src="assets/imagens/Logo.jpg" alt="Logo da Empresa"> <!-- Imagem da logo com texto alternativo -->
+  </div>
+
     <!-- Grupo para o campo de nova senha -->
     <div class="flex-column">
-      <label for="nova_senha">Nova Senha</label> <!-- Label associado ao input pela propriedade "for" -->
-      <div class="inputForm"> <!-- Container do input para estilização -->
+      <!-- Label associado ao input pela propriedade "for" -->
+      <label for="nova_senha">Nova Senha</label> 
+      <!-- Container do input para estilização -->
+      <div class="inputForm"> 
+         <!-- Campo para digitar a nova senha; "required" obriga o preenchimento -->
         <input class="input" type="password" name="nova_senha" placeholder="Nova senha" required> 
-        <!-- Campo para digitar a nova senha; "required" obriga o preenchimento -->
       </div>
     </div>
   
     <!-- Grupo para o campo de confirmação de senha -->
     <div class="flex-column">
-      <label for="confirmar_senha">Confirmar Senha</label> <!-- Label para o campo confirmar senha -->
-      <div class="inputForm"> <!-- Container do input para estilização -->
+      <!-- Label para o campo confirmar senha -->
+      <label for="confirmar_senha">Confirmar Senha</label> 
+      <!-- Container do input para estilização -->
+      <div class="inputForm"> 
+         <!-- Campo para confirmar a senha digitada; também obrigatório -->
         <input class="input" type="password" name="confirmar_senha" placeholder="Confirmar senha" required> 
-        <!-- Campo para confirmar a senha digitada; também obrigatório -->
       </div>
     </div>
   

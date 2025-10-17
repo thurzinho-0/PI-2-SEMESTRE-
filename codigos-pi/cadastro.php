@@ -16,7 +16,7 @@
   <form class="form" method="POST" action="processa_cadastro.php">
     <!-- Logo no topo para identidade visual -->
     <div class="logo">
-      <img src="/assets/imagens/Logo.jpg" alt="Logo">
+      <img src="assets/imagens/Logo.jpg" alt="Logo">
     </div>
 
     <!-- Campo de telefone/contato -->
