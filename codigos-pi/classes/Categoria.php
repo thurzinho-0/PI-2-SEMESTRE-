@@ -6,6 +6,7 @@ class Categoria
     private $conn;
     private $tabela_categoria = "categoria";
     public $nome;
+    public $id;
 
     public function __construct($db)
     {
@@ -56,5 +57,43 @@ class Categoria
         $resultado = $stmt->get_result();
 
         return $resultado;
+    }
+
+    public function excluir()
+    {
+        $query = "DELETE FROM " . $this->tabela_categoria . " WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function buscaID()
+    {
+        $query = "SELECT * FROM " . $this->tabela_categoria . " WHERE id = ? LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        if ($res->num_rows == 1) {
+            $row = $res->fetch_assoc();
+            return $row;
+        }
+        return false;
+    }
+
+    public function editar()
+    {
+        $query = "UPDATE " . $this->tabela_categoria . " SET nome = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $this->nome, $this->id);
+        if ($stmt->execute()){
+            return true;
+        }
+        return false;
     }
 }

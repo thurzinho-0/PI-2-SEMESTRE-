@@ -1,13 +1,13 @@
 <?php
- require_once('sessao_admin.php');
- require_once('../classes/Database.php');
- require_once('../classes/Categoria.php');
+require_once('sessao_admin.php');
+require_once('../classes/Database.php');
+require_once('../classes/Categoria.php');
 
- $database = new Database();
- $db = $database->getConnection();
- $categoria = new Categoria($db);
+$database = new Database();
+$db = $database->getConnection();
+$categoria = new Categoria($db);
 
- $lista_categorias = $categoria->listar();
+$lista_categorias = $categoria->listar();
 
 ?>
 <!DOCTYPE html>
@@ -33,11 +33,27 @@
 
     <h2>GERENCIAMENTO DE CATEGORIAS</h2>
 
-    <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
+    <?php if (isset($_GET['sucesso'])): ?>
         <div class="mensagem sucesso">
-            Categoria cadastrada com sucesso
+            <?php
+            switch ($_GET['sucesso']) {
+                case 1:
+                    echo "Categoria cadastrada com sucesso.";
+                    break;
+                case 2:
+                    echo "Categoria excluída com sucesso.";
+                    break;
+                case 3:
+                    echo "Categoria editada com sucesso.";
+                    break;
+                default:
+                    echo "Operação realizada com sucesso";
+            }
+            ?>
         </div>
     <?php endif; ?>
+
+
 
     <?php if (isset($_GET['erro'])): ?>
         <div class="mensagem erro">
@@ -51,6 +67,21 @@
                     break;
                 case 3:
                     echo "Método de requisição inválido.";
+                    break;
+                case 4:
+                    echo "Categoria não excluída.";
+                    break;
+                case 5:
+                    echo "Campo ID vazio.";
+                    break;
+                case 6:
+                    echo "Categoria não editada.";
+                    break;
+                case 7:
+                    echo "Campo ID ou Nome vazio.";
+                    break;
+                case 8:
+                    echo "Categoria não existente.";
                     break;
                 default:
                     echo "Erro desconhecido.";
@@ -92,7 +123,7 @@
                             echo '<tr>';
                             echo '<td>' . htmlspecialchars($linha['nome']) . '</td>';
                             echo '<td>';
-                            echo '<a href="editar_categoria.php?id=' . $linha['id'] . '" class="btn-acao editar">Editar</a> ';
+                            echo '<a href="edit_categoria.php?id=' . $linha['id'] . '" class="btn-acao editar">Editar</a> ';
                             echo '<a href="excluir_categoria.php?id=' . $linha['id'] . '" class="btn-acao excluir">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';

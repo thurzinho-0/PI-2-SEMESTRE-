@@ -1,6 +1,6 @@
 <?php
 require_once('sessao_admin.php');
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,7 +20,7 @@ require_once('sessao_admin.php');
     </header>
 
     <div class="top-icons">
-        </div>
+    </div>
 
     <div class="logout-btn">
         <a href="../logout.php" class="button-link">Sair</a>
@@ -40,7 +40,7 @@ require_once('sessao_admin.php');
                 <h3>Categorias</h3>
             </div>
         </a>
-        
+
         <a href="gerenciar_produtos.php" class="card-link">
             <div class="card">
                 <h3>Produtos</h3>
@@ -61,4 +61,5 @@ require_once('sessao_admin.php');
     </section>
 
 </body>
+
 </html>
