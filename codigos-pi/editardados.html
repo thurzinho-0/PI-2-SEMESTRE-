@@ -1,81 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Editar Dados Pessoais</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Link para o CSS externo -->
-  <link rel="stylesheet" href="assets/css/editarcliente.css">
+    <meta charset="UTF-8">
+    <title>Editar Dados Pessoais</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="assets/css/editarcliente.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Editar Perfil</h1>
+ 
+        <!-- Formulário de Dados Pessoais -->
+        <form id="formPerfil" action="#" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+ 
+            <div class="form-group">
+                <label for="senha">Senha *</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+ 
+            <div class="form-group">
+                <label for="confirmar">Confirmar Senha *</label>
+                <input type="password" id="confirmar" name="confirmar" required>
+            </div>
+ 
+            <div class="form-group">
+                <label for="email">E-mail </label>
+                <input type="email" id="email" name="email" required>
+            </div>
+ 
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+            </div>
+ 
+            <!-- Endereço do Usuário -->
+            <div class="form-group">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+ 
+            <!-- Validação de CEP -->
+            <div class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" placeholder="Digite o CEP, o Formato é 00000-0000" required>
+                <p id="resultado"></p>
+            </div>
+ 
+            <!-- Ações -->
+            <div class="actions">
+                <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                <button type="reset" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </form>
+    </div>
+ 
+    <script>
+        // Função de validação do CEP
+        function validarCEP() {
+            let cep = document.getElementById("cep").value;
+            cep = cep.replace("-", "").trim();
+            const resultado = document.getElementById("resultado");
+ 
 
-  <div class="container">
-    <h1>Editar Perfil</h1>
-
-    <form method="POST" action="#">
-
-      <!-- Avatar -->
-      <div class="avatar-section">
-        <div class="avatar-preview"></div>
-        <label for="avatar">Foto de perfil</label>
-        <input type="file" name="avatar" id="avatar" accept="image/*">
-      </div>
-
-      <!-- Dados Pessoais -->
-      <div class="form-group">
-        <label for="nome">Nome completo *</label>
-        <input type="text" id="nome" name="nome" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">E‑mail *</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" name="telefone">
-        </div>
-        <div class="form-group">
-          <label for="cpf">CPF</label>
-          <input type="text" id="cpf" name="cpf">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="nascimento">Data de nascimento</label>
-          <input type="date" id="nascimento" name="nascimento">
-        </div>
-        <div class="form-group">
-          <label for="genero">Gênero</label>
-          <select id="genero" name="genero">
-            <option value="">Selecione</option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
-      </div>
-      <!-- Endereço do Usuario -->      
-      <div class="form-group">
-  <label for="cidade">Cidade</label>
-  <input type="text" id="cidade" name="cidade" placeholder="ex: São Paulo">
-</div>
-
- <div class="form-group">
-    <label for="cep">CEP</label>
-    <input type="number" id="cep" name="cep" placeholder="00000-000" pattern="\d{5}-\d{3}" title="Digite o CEP no Formato 00000-000" maxlength="9">
-  </div>
-
-      <!-- Botões -->
-      <div class="actions">
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <button type="reset" class="btn btn-secondary">Cancelar</button>
-      </div>
-    </form>
-  </div>
-
+            const regex = /^[0-9]{8}$/;
+ 
+            if (regex.test(cep)) {
+                resultado.style.color = "green";
+                resultado.innerText = "CEP Válido!";
+                return true;
+            } else {
+                resultado.style.color = "red";
+                resultado.innerText = "CEP Inválido!";
+                return false;
+            }
+        }
+        document.getElementById("formPerfil").addEventListener("submit", function (event) {
+         
+            event.preventDefault();
+ 
+            if (validarCEP()) {
+               
+                this.submit(); 
+            } else {
+                
+                alert("Corrija os Dados Antes de Enviar.");
+            }
+        });
+    </script>
 </body>
 </html>
