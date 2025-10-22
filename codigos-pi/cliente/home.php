@@ -1,4 +1,4 @@
-<?php 
+ <?php 
   require_once ("sessao_cliente.php");
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
      CABEÇALHO COM LOGO
      ============================== -->
 <header>
-  <img src="assets/css/painelanuncio.css" alt="Ex Store Logo" />
+  <img src="assets/css/painelanuncio.css" alt="Cx Store Logo" />
 </header>
 
 <!-- ==============================
