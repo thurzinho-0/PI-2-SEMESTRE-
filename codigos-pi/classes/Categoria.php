@@ -13,6 +13,7 @@ class Categoria
         $this->conn = $db;
     }
 
+    //Metodo de verificação de categoria existente
     public function categoriaExiste()
     {
         $query = "SELECT id FROM " . $this->tabela_categoria . " WHERE nome = ? LIMIT 1";
@@ -29,6 +30,7 @@ class Categoria
         }
     }
 
+    //Metodo de criação de categoria
     public function criar()
     {
         if ($this->CategoriaExiste()) {
@@ -48,6 +50,7 @@ class Categoria
         return false;
     }
 
+    //Metodo de listagem de categoria
     public function listar()
     {
         $query = "SELECT * FROM " . $this->tabela_categoria . " ORDER BY nome";
@@ -59,6 +62,7 @@ class Categoria
         return $resultado;
     }
 
+    //Metodo de exclusão de categoria
     public function excluir()
     {
         $query = "DELETE FROM " . $this->tabela_categoria . " WHERE id = ?";
@@ -71,6 +75,7 @@ class Categoria
         return false;
     }
 
+    //Metodo de busca de categoria usando id
     public function buscaID()
     {
         $query = "SELECT * FROM " . $this->tabela_categoria . " WHERE id = ? LIMIT 1";
@@ -86,6 +91,7 @@ class Categoria
         return false;
     }
 
+    //Metodo de edição de categoria
     public function editar()
     {
         $query = "UPDATE " . $this->tabela_categoria . " SET nome = ? WHERE id = ?";

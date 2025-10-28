@@ -41,6 +41,18 @@ require_once('sessao_admin.php');
             </div>
         </a>
 
+        <a href="cor.php" class="card-link">
+            <div class="card">
+                <h3>Cores</h3>
+            </div>
+        </a>
+
+        <a href="tamanho.php" class="card-link">
+            <div class="card">
+                <h3>Tamanhos</h3>
+            </div>
+        </a>
+
         <a href="gerenciar_produtos.php" class="card-link">
             <div class="card">
                 <h3>Produtos</h3>
