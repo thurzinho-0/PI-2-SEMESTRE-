@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Categoria.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $database = new Database();
@@ -13,16 +14,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $categoria->nome = $_POST['nome'];
 
         if ($categoria->editar()) {
-            header("Location: categorias.php?sucesso=3"); //categoria editada
+            $_SESSION['msg_sucesso'] = $mensagens['categoria_editada'];
+            header("Location: categorias.php"); //categoria editada
             exit();
         } else {
-            header("Location: categorias.php?erro=6"); //categoria nao editada 
+            $_SESSION['msg_erro'] = $mensagens['categoria_nao_editada'];
+            header("Location: categorias.php"); //categoria nao editada 
             exit();
         }
     } else {
-        header("Location: categorias.php?erro=7"); //campo id ou nome vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: categorias.php"); //campo id ou nome vazio
         exit();
     }
 } else {
-    header("Location: categorias.php?erro=3"); //se o metodo nao for post
+    $_SESSION['msg_erro'] = $mensagens['requisicao_invalida'];
+    header("Location: categorias.php"); //se o metodo nao for post
+    exit();
 }

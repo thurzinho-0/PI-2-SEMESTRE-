@@ -20,66 +20,7 @@ $lista_tamanho = $tamanho->listarAtivo();
 <body>
     <h1>Gerenciamento de Tamanho</h1>
 
-    <?php if (isset($_GET['sucesso'])): ?>
-        <div class="msg sucesso">
-            <?php
-            switch ($_GET['sucesso']) {
-                case 1:
-                    echo "Tamanho cadastrado com sucesso.";
-                    break;
-                case 2:
-                    echo "Tamanho excluído com sucesso.";
-                    break;
-                case 3:
-                    echo "Tamanho editado com sucesso.";
-                    break;
-                case 4:
-                    echo "Tamanho inativado com sucesso.";
-                    break;
-                default:
-                    echo "Operação realizada com sucesso.";
-            }
-            ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (isset($_GET['erro'])): ?>
-        <div class="msg erro">
-            <?php
-            switch ($_GET['erro']) {
-                case 1:
-                    echo "Tamanho já existente.";
-                    break;
-                case 2:
-                    echo "O campo nome não pode estar vazio.";
-                    break;
-                case 3:
-                    echo "Método de requisição inválido.";
-                    break;
-                case 4:
-                    echo "Tamanho não excluído.";
-                    break;
-                case 5:
-                    echo "Campo ID vazio.";
-                    break;
-                case 6:
-                    echo "Tamanho não editado.";
-                    break;
-                case 7:
-                    echo "Campo ID ou Nome vazio.";
-                    break;
-                case 8:
-                    echo "Tamanho não existente.";
-                    break;
-                case 9:
-                    echo "Tamanho não inativado.";
-                    break;
-                default:
-                    echo "Erro desconhecido.";
-            }
-            ?>
-        </div>
-    <?php endif; ?>
+    <?php include('../includes/mensagens.php'); ?>
 
     <form action="add_tamanho.php" method="POST">
         <label for="nome_tamanho">Tamanho:</label>

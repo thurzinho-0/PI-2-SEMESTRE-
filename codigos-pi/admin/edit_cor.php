@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Cor.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $database = new Database();
@@ -15,11 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         $res = $cor->buscaID();
 
         if (!$res) {
-            header("Location: cor.php?erro=8"); //cor não existente
+            $_SESSION['msg_erro'] = $mensagens['cor_nao_existente'];
+            header("Location: cor.php");
             exit();
         }
     } else {
-        header("Location: cor.php?erro=5"); //campo ID vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: cor.php");
         exit();
     }
 }
@@ -35,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/cor.css" />
 </head>
+
 <body>
     <div class="top-nav">
         <a href="cor.php" class="btn-voltar">← Voltar para Cor</a>

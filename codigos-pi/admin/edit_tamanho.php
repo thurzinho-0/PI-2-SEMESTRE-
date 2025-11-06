@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Tamanho.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $database = new Database();
@@ -15,11 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         $res = $tamanho->buscaID();
 
         if (!$res) {
-            header("Location: tamanho.php?erro=8"); //tamanho não existente
+            $_SESSION['msg_erro'] = $mensagens['tamanho_nao_existente'];
+            header("Location: tamanho.php"); //tamanho não existente
             exit();
         }
     } else {
-        header("Location: tamanho.php?erro=5"); //campo ID vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: tamanho.php"); //campo ID vazio
         exit();
     }
 }
@@ -35,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/tamanho.css" />
 </head>
+
 <body>
     <div class="top-nav">
         <a href="tamanho.php" class="btn-voltar">← Voltar para Tamanho</a>

@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Tamanho.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $database = new Database();
@@ -12,16 +13,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tamanho->nome = $_POST['nome'];
 
         if ($tamanho->criar()) {
-            header("Location: tamanho.php?sucesso=1"); //tamanho cadastrado
+            $_SESSION['msg_sucesso'] = $mensagens['tamanho_criado'];
+            header("Location: tamanho.php"); //tamanho cadastrado
             exit();
         } else {
-            header("Location: tamanho.php?erro=1"); //tamanho nao cadastrado
+            $_SESSION['msg_erro'] = $mensagens['tamanho_nao_criado'];
+            header("Location: tamanho.php"); //tamanho nao cadastrado
             exit();
         }
     } else {
-        header("Location: tamanho.php?erro=2"); //campo nome vazio
+        $_SESSION['msg_erro'] = $mensagens['campos_vazios'];
+        header("Location: tamanho.php"); //campo nome vazio
         exit();
     }
 } else {
-    header("Location: tamanhos.php?erro=3"); //se o metodo nao for post
+    $_SESSION['msg_erro'] = $mensagens['requisicao_invalida'];
+    header("Location: tamanhos.php"); //se o metodo nao for post
+    exit();
 }

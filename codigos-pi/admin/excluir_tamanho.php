@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Tamanho.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $database = new Database();
@@ -13,25 +14,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if ($tamanho->TamanhoEmUso()) {
             if ($tamanho->inativar()) {
-                header("Location: tamanho.php?sucesso=4"); //tamanho inativado
+                $_SESSION['msg_sucesso'] = $mensagens['tamanho_inativado'];
+                header("Location: tamanho.php"); //tamanho inativado
                 exit();
             } else {
-                header("Location: tamanho.php?erro=9"); //tamanho nao inativado
+                $_SESSION['msg_erro'] = $mensagens['tamanho_nao_inativado'];
+                header("Location: tamanho.php"); //tamanho nao inativado
                 exit();
             }
         } else {
             if ($tamanho->excluir()) {
-                header("Location: tamanho.php?sucesso=2"); //tamanho excluido
+                $_SESSION['msg_sucesso'] = $mensagens['tamanho_excluido'];
+                header("Location: tamanho.php"); //tamanho excluido
                 exit();
             } else {
-                header("Location: tamanho.php?erro=4"); //tamanho nao excluido
+                $_SESSION['msg_erro'] = $mensagens['tamanho_nao_excluido'];
+                header("Location: tamanho.php"); //tamanho nao excluido
                 exit();
             }
         }
     } else {
-        header("Location: tamanho.php?erro=5"); //campo id vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: tamanho.php"); //campo id vazio
         exit();
     }
 } else {
-    header("Location: tamanho.php?erro=3"); //se o metodo nao for post
+    $_SESSION['msg_erro'] = $mensagens['requisicao_invalida'];
+    header("Location: tamanho.php"); //se o metodo nao for post
+    exit();
 }

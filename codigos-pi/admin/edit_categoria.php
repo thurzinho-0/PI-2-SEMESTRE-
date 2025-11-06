@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Categoria.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $database = new Database();
@@ -15,11 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         $res = $categoria->buscaID();
 
         if (!$res) {
-            header("Location: categorias.php?erro=8"); //categoria não existente
+            $_SESSION['msg_erro'] = $mensagens['categoria_nao_existente'];
+            header("Location: categorias.php");
             exit();
         }
     } else {
-        header("Location: categorias.php?erro=5"); //campo ID vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: categorias.php");
         exit();
     }
 }

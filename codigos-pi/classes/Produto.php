@@ -10,6 +10,7 @@ class Produto
     public $preco;
     public $fk_categoria_id;
     public $status;
+    public $imagem;
     public $id;
 
     public function __construct($db)
@@ -41,12 +42,12 @@ class Produto
             return false;
         }
 
-        $query = "INSERT INTO " . $this->tabela_produto . " (nome, descricao, fk_categoria_id, preco) VALUES (?,?,?,?)";
+        $query = "INSERT INTO " . $this->tabela_produto . " (nome, descricao, fk_categoria_id, preco, imagem) VALUES (?,?,?,?,?)";
 
         $stmt = $this->conn->prepare($query);
         $this->nome = htmlspecialchars(strip_tags($this->nome));
         $this->descricao = htmlspecialchars(strip_tags($this->descricao));
-        $stmt->bind_param("ssid", $this->nome, $this->descricao, $this->fk_categoria_id, $this->preco);
+        $stmt->bind_param("ssids", $this->nome, $this->descricao, $this->fk_categoria_id, $this->preco, $this->imagem);
 
         if ($stmt->execute()) {
             return true;
@@ -64,6 +65,7 @@ class Produto
                         p.preco, 
                         p.status, 
                         p.fk_categoria_id, 
+                        p.imagem,
                         c.nome as nome_categoria FROM " . $this->tabela_produto . " p LEFT JOIN categoria c ON p.fk_categoria_id = c.id WHERE p.status = 1 ORDER BY nome";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();

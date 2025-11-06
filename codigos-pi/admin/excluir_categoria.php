@@ -2,6 +2,7 @@
 require_once('sessao_admin.php');
 require_once('../classes/Database.php');
 require_once('../classes/Categoria.php');
+$mensagens = include('../config/mensagens.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $database = new Database();
@@ -13,20 +14,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if ($categoria->buscaID()) {
             if ($categoria->excluir()) {
-                header("Location: categorias.php?sucesso=2"); //categoria excluida
+                $_SESSION['msg_sucesso'] = $mensagens['categoria_excluida'];
+                header("Location: categorias.php");
                 exit();
             } else {
-                header("Location: categorias.php?erro=4"); //categoria nao excluida
+                $_SESSION['msg_erro'] = $mensagens['categoria_nao_excluida'];
+                header("Location: categorias.php");
                 exit();
             }
         } else {
-            header("Location: categorias.php?erro=8"); //categoria nao existente
+            $_SESSION['msg_erro'] = $mensagens['categoria_nao_existente'];
+            header("Location: categorias.php");
             exit();
         }
     } else {
-        header("Location: categorias.php?erro=5"); //campo id vazio
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: categorias.php?");
         exit();
     }
 } else {
-    header("Location: categorias.php?erro=3"); //se o metodo nao for post
+    $_SESSION['msg_erro'] = $mensagens['requisicao_invalida'];
+    header("Location: categorias.php");
+    exit();
 }
