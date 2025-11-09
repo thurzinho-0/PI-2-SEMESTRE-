@@ -2,499 +2,396 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cx Store - Streetwear</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-    :root {
-      --cor-primaria: #000000;
-      --cor-fundo: #ffffff;
-      --cor-destaque: #e53935;
-      --cor-cinza: #f0f0f0;
-      --cor-texto: #333;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .site-header {
-      padding: 1rem 0;
-      border-top: 4px solid #007bff;
-      border-bottom: 1px solid var(--cor-cinza);
-    }
-
-    .nav-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      border-bottom: 3px solid var(--cor-destaque);
-      padding-bottom: 1rem;
-    }
-
-    .main-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    .main-nav a {
-      color: var(--cor-primaria);
-      font-weight: 600;
-      text-transform: uppercase;
-      padding-bottom: 5px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s;
-    }
-
-    .main-nav a:hover {
-      border-bottom-color: var(--cor-primaria);
-    }
-
-    .main-nav {
-      display: none;
-    }
-
-    .header-actions {
-      display: none;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .action-icon {
-      font-size: 1.5rem;
-      color: var(--cor-primaria);
-      position: relative;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background-color: var(--cor-destaque);
-      color: white;
-      font-size: 0.7rem;
-      padding: 2px 6px;
-      border-radius: 50%;
-      font-weight: bold;
-      display: none;
-    }
-
-    .featured-products {
-      padding: 3rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .section-title::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background-color: var(--cor-destaque);
-    }
-
-    .section-title h2 {
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .product-card {
-      text-align: center;
-    }
-
-    .product-image img {
-      width: 100%;
-      background-color: var(--cor-cinza);
-    }
-
-    .product-info {
-      background-color: var(--cor-primaria);
-      color: var(--cor-fundo);
-      padding: 1rem;
-      text-align: left;
-    }
-
-    .product-info h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .product-info .price {
-      font-size: 0.9rem;
-      font-weight: 400;
-    }
-
-    .add-to-cart-btn {
-      display: block;
-      background-color: var(--cor-destaque);
-      color: var(--cor-fundo);
-      padding: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      transition: background-color 0.3s;
-    }
-
-    .add-to-cart-btn:hover {
-      background-color: #c4302b;
-    }
-
-    .site-footer {
-      background-color: var(--cor-primaria);
-      color: var(--cor-fundo);
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .footer-social {
-      margin-bottom: 1rem;
-    }
-
-    .footer-social a {
-      color: var(--cor-fundo);
-      font-size: 1.5rem;
-      margin: 0 0.75rem;
-    }
-
-    .copyright-text p {
-      font-size: 0.9rem;
-    }
-
-    @media (min-width: 768px) {
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .menu-toggle {
-        display: none;
-      }
-
-      .main-nav {
-        display: block;
-      }
-
-      .header-actions {
-        display: flex;
-      }
-
-      .nav-bar {
-        justify-content: space-between;
-      }
-
-      .main-nav {
-        flex-grow: 1;
-        text-align: center;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .product-image img {
-      max-width: 80%;
-      height: auto;
-      border-radius: 30px;
-    }
-
-    .logo-container {
-      text-align: center;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .logo-container img {
-      width: 300px;
-      height: auto;
-      max-width: 100%;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cx Store - Streetwear Premium</title>
+  <!-- Link para a folha de estilos CSS externa -->
+  <link rel="stylesheet" href="home.css" />
+  <!-- Link para a biblioteca de ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <div class="logo-container">
-      <a href="#"><img src="Logo.jpg" alt="Logo Cx Store"></a>
-    </div>
-
-    <div class="nav-bar">
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#">Camisetas</a></li>
-          <li><a href="#">Acessórios</a></li>
-          <li><a href="#">Calças</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <a href="#" class="action-icon"><i class="fas fa-user"></i></a>
-        <a href="#" class="action-icon">
-          <i class="fas fa-shopping-bag"></i>
-          <span class="cart-count">0</span>
-        </a>
+  <!-- ======================= CABEÇALHO (HEADER) ======================= -->
+  <header class="site-header">
+    <div class="container">
+      <!-- Logo da Loja -->
+      <div class="logo-container">
+        <a href="#"><img src="Logo.jpg" alt="Logo Cx Store"></a>
       </div>
 
-      <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-    </div>
-  </div>
-</header>
+      <!-- Barra de Navegação -->
+      <nav class="nav-bar">
+        <div class="main-nav">
+          <ul>
+            <li><a href="#novidades">Novidades</a></li>
+            <li><a href="#camisetas">Camisetas</a></li>
+            <li><a href="#calcas">Calças</a></li>
+            <li><a href="#sale" class="sale-link">Promoções</a></li>
+          </ul>
+        </div>
 
-<main>
-    <!-- Sessão 1: Mais Vendidos -->
-    <section class="featured-products">
+        <!-- Ações do Cabeçalho: Busca, Login e Carrinho -->
+        <div class="header-actions">
+          <a href="#" class="action-icon" aria-label="Acessar perfil do usuário">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#" class="cart-icon action-icon" aria-label="Ver carrinho de compras">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+
+        <!-- Botão de Menu para Dispositivos Móveis -->
+        <button class="menu-toggle" aria-label="Abrir menu de navegação">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================= BANNER ======================= -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">Nova Coleção 2025</h1>
+      <p class="hero-subtitle">Estilo autêntico. Qualidade incomparável.</p>
+      <a href="#novidades" class="hero-btn">Explorar Agora</a>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- ======================= CONTEÚDO PRINCIPAL (MAIN) ======================= -->
+  <main>
+    <!-- Seção: Mais Vendidos -->
+    <section class="featured-products" id="novidades">
       <div class="container">
         <div class="section-title">
+          <span class="section-tag">Ranking de Vendas</span>
           <h2>Mais Vendidos</h2>
+          <p class="section-subtitle">Os produtos favoritos da nossa comunidade</p>
         </div>
-  
         <div class="product-grid">
-          <!-- 4 produtos (já tinha) -->
-          <div class="product-card">
+          <!-- Produto 1 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="camiseta1.png" alt="Camiseta Streetwear" />
+              <img src="camiseta1.png" alt="Camiseta Streetwear Cristal Ball Black" />
+              <div class="product-badge">Mais vendida</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Camiseta Sufgang Cristal Ball Black</h3>
-              <p class="price">R$50,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 50,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 2 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="../assets/imagens/camiseta2.png" alt="Camiseta Oversized" />
+              <img src="camiseta2.png" alt="Camiseta Oversized com estampa 'Eu não quero BUXIXO'" />
+              <div class="product-badge hot">Oferta Quente</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
-              <h3>Camiseta Oversized Eu não quero BUXIXO só quero Dinheiro - Streetwear</h3>
-              <p class="price">R$50,00 - Leve 3 e ganhe 5% OFF</p>
+              <h3>Camiseta Oversized Eu não quero BUXIXO</h3>
+              <p class="price">
+                <span class="price-current">R$ 50,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 3 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="camiseta3.png" alt="Calça Zip Off" />
+              <img src="camiseta3.png" alt="Camiseta Santa Cruz com estampa Flying Eye" />
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Santa Cruz T-Shirt with Flying Eye</h3>
-              <p class="price">R$50,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 50,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 4 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="camiseta4.png" alt="Boné Five Panel" />
+              <img src="camiseta4.png" alt="Camiseta Oversized High com estampa de Dragão Neon" />
+              <div class="product-badge new">New</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Camiseta Oversized High – Dragão Neon</h3>
-              <p class="price">R$50,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 50,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
         </div>
       </div>
     </section>
   
-    <!-- Sessão 2: Novidades -->
-    <section class="featured-products">
+    <!-- Seção: Calças -->
+    <section class="featured-products dark-section" id="calcas">
       <div class="container">
         <div class="section-title">
-          <h2>Calças</h2>
+          <span class="section-tag">Linhas de Jeans</span>
+          <h2>Calças & Camisetas</h2>
+          <p class="section-subtitle">Conforto e estilo para todas as ocasiões</p>
         </div>
-  
         <div class="product-grid">
-          <div class="product-card">
+          <!-- Produto 5 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="calca1.png" alt="Camiseta Nova 1" />
+              <img src="calca1.png" alt="Calça bege estilo Street Style" />
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Calça bege Street Style</h3>
-              <p class="price">R$70,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 70,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 6 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="calca2.png" alt="Camiseta Nova 2" />
+              <img src="calca2.png" alt="Calça preta da marca High" />
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Calça Black High</h3>
-              <p class="price">R$70,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 70,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 7 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="shorts.png" alt="Camiseta Nova 3" />
+              <img src="shorts.png" alt="Shorts da marca High" />
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Shorts High</h3>
-              <p class="price">R$65,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 65,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 8 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="shorts2.png" alt="Camiseta Nova 4" />
+              <img src="shorts2.png" alt="Shorts cinza da marca High" />
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Shorts High Cinza</h3>
-              <p class="price">R$65,00 - Leve 3 e ganhe 5% OFF</p>
+              <p class="price">
+                <span class="price-current">R$ 65,00</span>
+              </p>
+              <p class="price-promo">Leve 3 e ganhe 5% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
         </div>
       </div>
     </section>
   
-    <!-- Sessão 3: Promoções -->
-    <section class="featured-products">
+    <!-- Seção: Promoções -->
+    <section class="featured-products promo-section" id="sale">
       <div class="container">
         <div class="section-title">
-          <h2>Promoções</h2>
+          <span class="section-tag sale-tag">Black Friday Bombando</span>
+          <h2>Promoções Imperdíveis</h2>
+          <p class="section-subtitle">Aproveite os melhores preços</p>
         </div>
-  
         <div class="product-grid">
-          <div class="product-card">
+          <!-- Produto 9 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="boné.png" alt="Promo 1" />
+              <img src="boné.png" alt="Boné da marca High" />
+              <div class="product-badge sale">-15%</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Boné High</h3>
-              <p class="price">R$80,00 - Leve 2 e ganhe 15% OF</p>
+              <p class="price">
+                <span class="price-old">R$ 94,00</span>
+                <span class="price-current">R$ 80,00</span>
+              </p>
+              <p class="price-promo">Leve 2 e ganhe 15% OFF</p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 10 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="shorts3.png" alt="Promo 2" />
+              <img src="shorts3.png" alt="Shorts bege da marca High" />
+              <div class="product-badge sale">5%</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Shorts High Bege</h3>
-              <p class="price">R$50,00</p>
+              <p class="price">
+                <span class="price-old">R$ 60,00</span>
+                <span class="price-current">R$ 50,00</span>
+              </p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 11 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="shorts4.png" alt="Promo 3" />
+              <img src="shorts4.png" alt="Shorts cinza da marca High em promoção" />
+              <div class="product-badge sale">5%</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Shorts High Cinza</h3>
-              <p class="price">R$50,00</p>
+              <p class="price">
+                <span class="price-old">R$ 60,00</span>
+                <span class="price-current">R$ 50,00</span>
+              </p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
-          <div class="product-card">
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
+
+          <!-- Produto 12 -->
+          <article class="product-card">
             <div class="product-image">
-              <img src="promo3.png" alt="Promo 4" />
+              <img src="promo3.png" alt="Camiseta branca High Eco" />
+              <div class="product-badge sale">5%</div>
+              <div class="product-overlay">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Ver Detalhes</button>
+              </div>
             </div>
             <div class="product-info">
               <h3>Camiseta High Eco Branca</h3>
-              <p class="price">R$40,00</p>
+              <p class="price">
+                <span class="price-old">R$ 50,00</span>
+                <span class="price-current">R$ 40,00</span>
+              </p>
             </div>
-            <a href="#" class="add-to-cart-btn">Adicionar ao Carrinho</a>
-          </div>
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            </button>
+          </article>
         </div>
       </div>
     </section>
-  </main>
+         
   
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
+  <!-- ======================= RODAPÉ (FOOTER) ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1: Sobre -->
+        <div class="footer-column">
+          <h4>Sobre a Cx Store</h4>
+          <p>Streetwear autêntico para quem vive a cultura urbana. Qualidade, estilo e atitude em cada peça.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/cxstore__" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@cxstore__" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/551971338665" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+      
+        <!-- Coluna 4: Contato -->
+        <div class="footer-column">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fas fa-envelope"></i> caiobethegueli@gmail.com</li>
+            <li><i class="fas fa-phone"></i> (19) 97133-8665</li>
+            <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>© 2025 Cx Store. Todos os direitos reservados.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-pix"></i>
+        </div>
+      </div>
     </div>
-    <div class="copyright-text">
-      © 2025 Cx Store. Todos os direitos reservados.
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- JS para o contador do carrinho -->
-<script>
-  let cartCount = 0;
+  <!-- Botão de Voltar ao Topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-  document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
-      cartCount++;
-      updateCartCount();
-    });
-  });
-
-  function updateCartCount() {
-    const countEl = document.querySelector(".cart-count");
-    countEl.textContent = cartCount;
-    countEl.style.display = cartCount > 0 ? "inline-block" : "none";
-  }
-</script>
-
-</body>
-</html>
-
+  <!-- Link para o arquivo JavaScript externo -->
+  <script src="home.js"></script>
 </body>
 </html>
