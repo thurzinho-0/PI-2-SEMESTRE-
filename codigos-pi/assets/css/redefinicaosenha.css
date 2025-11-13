@@ -33,7 +33,7 @@
     font-family: inherit;
   }
   
-  /* Label do input (ex: “Nova Senha”) */
+  /* Label do input  */
   .flex-column > label {
     color: #151717;
     font-weight: 600; /* Negrito para destaque */
@@ -44,7 +44,7 @@
      ==================== */
      .inputForm {
         background: #fff; /* Fundo branco no container */
-        border: 1.5px solid #ecedec;
+        border: 1.5px solid #ffffff;
         border-radius: 10px;
         height: 50px;
         display: flex;

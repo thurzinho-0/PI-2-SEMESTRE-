@@ -1,3 +1,9 @@
+<!-- Iniciando Sessão com PHP -->
+<?php
+session_start();
+require_once './classes/Usuario.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +26,7 @@
     
 
     <!-- Formulário para envio do e-mail -->
-    <form action="#" method="post">
+    <form action="email_enviado.php" method="post">
       <input type="email" name="email" placeholder="Seu e-mail" required>
       <button type="submit">Enviar link</button>
     </form>

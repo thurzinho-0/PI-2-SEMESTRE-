@@ -1,3 +1,9 @@
+<!-- Iniciando Sessão com PHP -->
+<?php
+session_start();
+require_once './classes/Usuario.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

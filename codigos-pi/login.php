@@ -51,7 +51,7 @@ if (isset($_GET['erro'])) {
 
         <button class="button-submit">Login</button>
 
-        <p class="p">Esqueceu a senha? <span class="span"><a href="redefinicao_senha.html">Clique aqui</a></span></p>
+        <p class="p">Esqueceu a senha? <span class="span"><a href="redefinicao_senha.php">Clique aqui</a></span></p>
         <p class="p">Ainda não possui uma conta? <span class="span"><a href="cadastro.php">Cadastre-se</a></span></p>
     </form>
 </body>

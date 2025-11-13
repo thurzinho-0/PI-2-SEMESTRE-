@@ -66,8 +66,7 @@
     <button class="button-submit">Cadastrar-se</button>
 
     <!-- Links úteis -->
-    <p class="p">Esqueceu a senha? <span class="span">Clique aqui</span></p>
-    <p class="p">Já tem uma conta? <span class="span">Login</span></p>
+    <p class="p">Já tem uma conta? <span class="span"><a href="login.php">Voltar<a></span></p>
   </form>
 </body>
 </html>
