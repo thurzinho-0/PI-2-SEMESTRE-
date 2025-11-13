@@ -19,14 +19,6 @@ header img {
   max-width: 100%;
 }
 
-.img-produto {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
 .top-nav {
   position: fixed;
   top: 20px;
@@ -71,6 +63,7 @@ h2 {
   display: block;
 }
 
+
 .mensagem {
   padding: 15px 20px;
   margin-bottom: 20px;
@@ -97,75 +90,19 @@ h2 {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.form-container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
-}
-
-.form-container h3 {
-  margin-top: 0;
-  color: #333;
-  font-size: 1.3em;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1em;
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #d10000;
-}
-
-.btn-adicionar {
-  background-color: #d10000;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-adicionar:hover {
-  background-color: #a30000;
-}
 
 .lista-container {
   background-color: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .lista-container h3 {
@@ -179,10 +116,11 @@ h2 {
   overflow-x: auto;
 }
 
+
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 750px;
 }
 
 thead {
@@ -212,58 +150,86 @@ tbody tr:hover {
   font-style: italic;
 }
 
-.btn-editar,
-.btn-excluir {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+
+.btn-acao {
+  text-decoration: none;
   font-weight: 600;
   font-size: 0.9em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: white;
   margin-right: 5px;
-  transition: opacity 0.3s ease;
 }
 
-.btn-editar {
+.btn-acao.editar {
   background-color: #4CAF50;
-  color: white;
 }
 
-.btn-editar:hover {
-  opacity: 0.8;
-}
-
-.btn-excluir {
+.btn-acao.excluir {
   background-color: #d10000;
-  color: white;
 }
 
-.btn-excluir:hover {
-  opacity: 0.8;
+.btn-acao:hover {
+  opacity: 0.7;
 }
+
+
+.img-produto {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+  transform: translateX(24px);
+}
+
 
 @media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  header {
-    padding-top: 100px;
-  }
-
-  .top-nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .mensagem {
-    font-size: 0.9em;
-    padding: 12px 15px;
-  }
-
-  .form-container,
-  .lista-container {
-    padding: 20px;
+  table {
+    min-width: 620px;
   }
 
   thead th,
@@ -271,21 +237,26 @@ tbody tr:hover {
     padding: 10px;
     font-size: 0.9em;
   }
+
+  header {
+    padding-top: 100px;
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 480px) {
+
   .btn-voltar,
   .btn-sair {
     padding: 8px 15px;
     font-size: 0.85em;
   }
-
-  .form-group input {
-    font-size: 0.95em;
-  }
-
-  .btn-adicionar {
-    width: 100%;
-  }
-
 }

@@ -12,7 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!empty($_GET['id'])) {
         $categoria->id = $_GET['id'];
 
-        if ($categoria->buscaID()) {
+        if ($categoria->categoriaEmUso()) {
+            if ($categoria->inativar()) {
+                $_SESSION['msg_sucesso'] = $mensagens['categoria_inativada'];
+                header("Location: categorias.php");
+                exit();
+            } else {
+                $_SESSION['msg_erro'] = $mensagens['categoria_nao_inativada'];
+                header("Location: categorias.php");
+                exit();
+            }
+        } else {
             if ($categoria->excluir()) {
                 $_SESSION['msg_sucesso'] = $mensagens['categoria_excluida'];
                 header("Location: categorias.php");
@@ -22,14 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 header("Location: categorias.php");
                 exit();
             }
-        } else {
-            $_SESSION['msg_erro'] = $mensagens['categoria_nao_existente'];
-            header("Location: categorias.php");
-            exit();
         }
     } else {
         $_SESSION['msg_erro'] = $mensagens['id_vazio'];
-        header("Location: categorias.php?");
+        header("Location: categorias.php");
         exit();
     }
 } else {

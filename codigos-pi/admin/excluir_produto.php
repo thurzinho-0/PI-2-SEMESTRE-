@@ -9,24 +9,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $db = $database->getConnection();
     $produto = new Produto($db);
 
-    if (!empty($_GET['id'])) {
-        $produto->id = $_GET['id'];
-        if ($produto->excluir()) {
-            $_SESSION['msg_sucesso'] = $mensagens['produto_excluido'];
-            header("Location: produtos.php"); //produto excluido
+    if (empty($_GET['id'])) {
+        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
+        header("Location: produtos.php");
+        exit();
+    }
+
+    $produto->id = $_GET['id'];
+
+    if ($produto->produtoEmUso()) {
+
+        if ($produto->inativar()) {
+            $_SESSION['msg_sucesso'] = $mensagens['produto_inativado'];
+            header("Location: produtos.php");
             exit();
         } else {
-            $_SESSION['msg_erro'] = $mensagens['produto_nao_excluido'];
-            header("Location: produtos.php"); //produto nao excluido
+            $_SESSION['msg_erro'] = $mensagens['produto_nao_inativado'];
+            header("Location: produtos.php");
             exit();
         }
     } else {
-        $_SESSION['msg_erro'] = $mensagens['id_vazio'];
-        header("Location: produtos.php?erro=5"); //campo id vazio
-        exit();
+
+        if ($produto->excluir()) {
+            $_SESSION['msg_sucesso'] = $mensagens['produto_excluido'];
+            header("Location: produtos.php");
+            exit();
+        } else {
+            $_SESSION['msg_erro'] = $mensagens['produto_nao_excluido'];
+            header("Location: produtos.php");
+            exit();
+        }
     }
 } else {
     $_SESSION['msg_erro'] = $mensagens['requisicao_invalida'];
-    header("Location: produtos.php?erro=3"); //se o metodo nao for post
+    header("Location: produtos.php");
     exit();
 }

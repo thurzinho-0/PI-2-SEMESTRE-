@@ -143,7 +143,13 @@ h2 {
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .btn-adicionar {
@@ -156,11 +162,32 @@ h2 {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
+  flex: 1;
 }
 
 .btn-adicionar:hover {
   background-color: #a30000;
+}
+
+.btn-cancelar {
+  background-color: #666;
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancelar:hover {
+  background-color: #555;
 }
 
 @media (max-width: 768px) {
@@ -185,6 +212,10 @@ h2 {
   .form-container {
     padding: 20px;
   }
+
+  .btn-group {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
@@ -198,5 +229,10 @@ h2 {
   .form-group select,
   .form-group textarea {
     font-size: 0.95em;
+  }
+
+  .btn-adicionar,
+  .btn-cancelar {
+    width: 100%;
   }
 }

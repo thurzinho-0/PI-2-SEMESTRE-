@@ -1,0 +1,267 @@
+/* painel_admin.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --bg: #f9f9f9;
+    --card: #ffffff;
+    --muted: #999;
+    --accent: #d10000;
+    --accent-dark: #a30000;
+    --dark: #333333;
+    --success-bg: #d4edda;
+    --success-text: #155724;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --table-head: #000;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: var(--bg);
+    color: var(--dark);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 60px;
+}
+
+header img {
+    height: 60px;
+    max-width: 100%;
+}
+
+/* Top nav */
+.top-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.btn-voltar,
+.btn-sair {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: .9rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-voltar {
+    background: #333
+}
+
+.btn-voltar:hover {
+    background: #555
+}
+
+.btn-sair {
+    background: var(--accent)
+}
+
+.btn-sair:hover {
+    background: var(--accent-dark)
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    display: block;
+    margin: 36px auto;
+    padding-bottom: 6px;
+    font-size: 1.25rem;
+}
+
+/* Mensagens */
+.mensagem {
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mensagem.sucesso {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.mensagem.erro {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+/* Cards */
+.form-container,
+.lista-container {
+    background: var(--card);
+    padding: 26px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    margin-bottom: 28px;
+}
+
+.form-container h3,
+.lista-container h3 {
+    margin: 0 0 16px 0;
+    font-size: 1.15rem;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+}
+
+.btn-adicionar {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 26px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-adicionar:hover {
+    background: var(--accent-dark)
+}
+
+/* Table */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 6px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: var(--table-head);
+    color: #fff;
+}
+
+thead th {
+    padding: 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* Botões alinhados à direita */
+td.acoes,
+th.acoes {
+    text-align: right !important;
+}
+
+/* Linhas */
+tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f1f1f1;
+    vertical-align: middle;
+    font-size: .92rem;
+}
+
+tbody tr:hover {
+    background: #fafafa;
+}
+
+/* Mensagem tabela vazia */
+.empty-message {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Action buttons */
+.btn-editar,
+.btn-excluir {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.btn-editar {
+    background: #2ea44f
+}
+
+.btn-editar:hover {
+    opacity: .9
+}
+
+.btn-excluir {
+    background: var(--accent)
+}
+
+.btn-excluir:hover {
+    opacity: .9
+}
+
+/* Footer actions */
+.small-actions {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.small-actions a {
+    background: #333;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width:700px) {
+    table {
+        min-width: 520px;
+    }
+
+    .top-nav {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+}

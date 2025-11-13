@@ -13,15 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cor->id = $_POST['id'];
         $cor->nome = $_POST['nome'];
 
-        if ($cor->editar()) {
-            $_SESSION['msg_sucesso'] = $mensagens['cor_editada'];
-            header("Location: cor.php"); //cor editada
-            exit();
-        } else {
-            $_SESSION['msg_erro'] = $mensagens['cor_nao_editada'];
-            header("Location: cor.php"); //cor nao editada 
+        if ($cor->CorExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['cor_duplicada'];
+            header("Location: cor.php");
             exit();
         }
+        if ($cor->editar()) {
+            $_SESSION['msg_sucesso'] = $mensagens['cor_editada'];
+        } else {
+            $_SESSION['msg_erro'] = $mensagens['cor_nao_editada'];
+        }
+        header("Location: cor.php");
+        exit();
     } else {
         $_SESSION['msg_erro'] = $mensagens['id_vazio'];
         header("Location: cor.php?"); //campo id ou nome vazio

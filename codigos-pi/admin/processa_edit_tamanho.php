@@ -13,15 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tamanho->id = $_POST['id'];
         $tamanho->nome = $_POST['nome'];
 
-        if ($tamanho->editar()) {
-            $_SESSION['msg_sucesso'] = $mensagens['tamanho_editado'];
-            header("Location: tamanho.php"); //tamanho editado
-            exit();
-        } else {
-            $_SESSION['msg_erro'] = $mensagens['tamanho_nao_editado'];
-            header("Location: tamanho.php"); //tamanho nao editado 
+        if ($tamanho->TamanhoExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['tamanho_duplicado'];
+            header("Location: tamanho.php");
             exit();
         }
+        if ($tamanho->editar()) {
+            $_SESSION['msg_sucesso'] = $mensagens['tamanho_editado'];
+        } else {
+            $_SESSION['msg_erro'] = $mensagens['tamanho_nao_editado'];
+        }
+        header("Location: tamanho.php");
+        exit();
     } else {
         $_SESSION['msg_erro'] = $mensagens['campos_vazios'];
         header("Location: tamanho.php"); //campo id ou nome vazio

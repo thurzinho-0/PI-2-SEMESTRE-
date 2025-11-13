@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['nome'])) {
         $categoria->nome = $_POST['nome'];
 
+        if ($categoria->categoriaExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['categoria_duplicada'];
+            header("Location: categorias.php");
+            exit();
+        }
         if ($categoria->criar()) {
             $_SESSION['msg_sucesso'] = $mensagens['categoria_criada'];
             header("Location: categorias.php");

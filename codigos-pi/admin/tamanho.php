@@ -12,54 +12,68 @@ $lista_tamanho = $tamanho->listarAtivo();
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Gerenciar Tamanho</title>
-    <link rel="stylesheet" href="../assets/css/tamanho.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gerenciar Tamanhos - CX Store</title>
+    <link rel="stylesheet" href="../assets/css/painel_admin.css" />
 </head>
 
 <body>
-    <h1>Gerenciamento de Tamanho</h1>
+    <header><img src="../assets/imagens/Logo.jpg" alt="Logo CX Store" /></header>
+
+    <div class="top-nav">
+        <a href="controle.php" class="btn-voltar">← Voltar</a>
+        <a href="../logout.php" class="btn-sair">Sair</a>
+    </div>
+
+    <h2>GERENCIAMENTO DE TAMANHOS</h2>
 
     <?php include('../includes/mensagens.php'); ?>
 
-    <form action="add_tamanho.php" method="POST">
-        <label for="nome_tamanho">Tamanho:</label>
-        <input type="text" id="nome_tamanho" name="nome" required>
+    <section class="form-container">
+        <h3>Adicionar Novo Tamanho</h3>
+        <form action="add_tamanho.php" method="POST">
+            <div class="form-group">
+                <label for="nome_tamanho">Tamanho:</label>
+                <input type="text" id="nome_tamanho" name="nome" required />
+            </div>
+            <button type="submit" class="btn-adicionar">Adicionar</button>
+        </form>
+    </section>
 
-        <button type="submit">Adicionar</button>
-    </form>
-
-    <h2>Tamanhos cadastrados</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($lista_tamanho->num_rows == 0) {
-                echo '<tr><td colspan="3">Nenhuma tamanho cadastrada.</td></tr>';
-            } else {
-                while ($linha = $lista_tamanho->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . htmlspecialchars($linha['nome']) . '</td>';
-                    echo '<td>Ativo</td>';
-                    echo '<td>
-                        <a href="edit_tamanho.php?id=' . $linha['id'] . '">Editar</a> |
-                        <a href="excluir_tamanho.php?id=' . $linha['id'] . '">Excluir</a>
-                    </td>';
-                    echo '</tr>';
-                }
-            }
-            ?>
-        </tbody>
-    </table>
-    <a href="tamanho_inativo.php">Ver tamanho inativos</a>
-    <a href="controle.php">Voltar</a>
-
+    <section class="lista-container">
+        <h3>Tamanhos cadastrados</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th class="acoes">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($lista_tamanho->num_rows == 0): ?>
+                        <tr>
+                            <td colspan="2" class="empty-message">Nenhum tamanho cadastrado.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php while ($linha = $lista_tamanho->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($linha['nome']) ?></td>
+                                <td class="acoes"> 
+                                    <a href="edit_tamanho.php?id=<?= $linha['id'] ?>" class="btn-editar">Editar</a>
+                                    <a href="excluir_tamanho.php?id=<?= $linha['id'] ?>" class="btn-excluir">Excluir</a>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="small-actions">
+            <a href="tamanho_inativo.php" class="btn-voltar">Ver tamanhos inativos</a>
+        </div>
+    </section>
 </body>
 
 </html>

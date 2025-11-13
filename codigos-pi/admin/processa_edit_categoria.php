@@ -13,15 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $categoria->id = $_POST['id'];
         $categoria->nome = $_POST['nome'];
 
-        if ($categoria->editar()) {
-            $_SESSION['msg_sucesso'] = $mensagens['categoria_editada'];
-            header("Location: categorias.php"); //categoria editada
-            exit();
-        } else {
-            $_SESSION['msg_erro'] = $mensagens['categoria_nao_editada'];
-            header("Location: categorias.php"); //categoria nao editada 
+        if ($categoria->categoriaExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['categoria_duplicada'];
+            header("Location: categorias.php");
             exit();
         }
+        if ($categoria->editar()) {
+            $_SESSION['msg_sucesso'] = $mensagens['categoria_editada'];
+        } else {
+            $_SESSION['msg_erro'] = $mensagens['categoria_nao_editada'];
+        }
+        header("Location: categorias.php");
+        exit();
     } else {
         $_SESSION['msg_erro'] = $mensagens['id_vazio'];
         header("Location: categorias.php"); //campo id ou nome vazio

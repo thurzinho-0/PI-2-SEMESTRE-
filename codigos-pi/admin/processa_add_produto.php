@@ -63,9 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($produto->criar()) {
         $_SESSION['msg_sucesso'] = $mensagens['produto_criado'];
         $id_novo_produto = $db->insert_id;
-        
-        header("Location: produtos.php");
-        // header("Location: gerenciar_variacoes.php?id_produto=" . $id_novo_produto . "&novo=1");
+        header("Location: gerenciar_variacoes.php?id_produto=" . $id_novo_produto . "&novo=1");
         exit();
     } else {
         $_SESSION['msg_erro'] = $mensagens['produto_nao_criado'];

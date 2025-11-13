@@ -16,23 +16,30 @@ class Tamanho
     //Metodo de verificação de tamanho existente
     public function TamanhoExiste()
     {
-        $query = "SELECT id FROM " . $this->tabela_tamanho . " WHERE nome = ? LIMIT 1";
+        $this->nome = trim($this->nome);
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $this->nome);
+        if (!empty($this->id)) {
+            $query = "SELECT id FROM " . $this->tabela_tamanho . " WHERE nome = ? AND id != ? LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("si", $this->nome, $this->id);
+        } else {
+            $query = "SELECT id FROM " . $this->tabela_tamanho . " WHERE nome = ? LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("s", $this->nome);
+        }
+
         $stmt->execute();
         $stmt->store_result();
 
-        if ($stmt->num_rows > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $stmt->num_rows > 0;
     }
+
 
     //Metodo de criação de tamanho
     public function criar()
     {
+        $this->nome = trim($this->nome);
+
         if ($this->TamanhoExiste()) {
             return false;
         }
@@ -137,6 +144,19 @@ class Tamanho
     public function inativar()
     {
         $query = "UPDATE " . $this->tabela_tamanho . " SET ativo = FALSE WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    //Metodo de reativação de tamanho
+    public function reativar()
+    {
+        $query = "UPDATE " . $this->tabela_tamanho . " SET ativo = TRUE WHERE id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $this->id);
 

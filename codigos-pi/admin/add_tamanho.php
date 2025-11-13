@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['nome'])) {
         $tamanho->nome = $_POST['nome'];
 
+        if ($tamanho->TamanhoExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['tamanho_duplicado'];
+            header("Location: tamanho.php");
+            exit();
+        }
         if ($tamanho->criar()) {
             $_SESSION['msg_sucesso'] = $mensagens['tamanho_criado'];
             header("Location: tamanho.php"); //tamanho cadastrado

@@ -7,51 +7,57 @@ $database = new Database();
 $db = $database->getConnection();
 $tamanho = new Tamanho($db);
 $lista_tamanho = $tamanho->listarInativo();
-$ativo = 1;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Gerenciar Tamanho</title>
-    <link rel="stylesheet" href="../assets/css/tamanho.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tamanhos Inativos - CX Store</title>
+    <link rel="stylesheet" href="../assets/css/painel_admin.css" />
 </head>
 
 <body>
-    <h1>Gerenciamento de Tamanho</h1>
+    <header><img src="../assets/imagens/Logo.jpg" alt="Logo CX Store" /></header>
 
-    <h2>Tamanhos inativados</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($lista_tamanho->num_rows == 0) {
-                echo '<tr><td colspan="3">Nenhuma tamanho cadastrada.</td></tr>';
-            } else {
-                while ($linha = $lista_tamanho->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . htmlspecialchars($linha['nome']) . '</td>';
-                    echo '<td>Ativo</td>';
-                    echo '<td>
-                        <a href="edit_tamanho.php?id=' . $linha['id'] . '">Editar</a> |
-                        <a href="excluir_tamanho.php?id=' . $linha['id'] . '">Excluir</a>
-                    </td>';
-                    echo '</tr>';
-                }
-            }
-            ?>
-        </tbody>
-    </table>
-    <a href="tamanho_inativas.php">Ver tamanho inativas</a>
-    <a href="controle.php">Voltar</a>
+    <div class="top-nav">
+        <a href="tamanho.php" class="btn-voltar">← Voltar</a>
+        <a href="../logout.php" class="btn-sair">Sair</a>
+    </div>
 
+    <h2>TAMANHOS INATIVADOS</h2>
+
+    <section class="lista-container">
+        <h3>Lista de Tamanhos Inativos</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th class="acoes">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($lista_tamanho->num_rows == 0): ?>
+                        <tr>
+                            <td colspan="2" class="empty-message">Nenhum tamanho inativado.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php while ($linha = $lista_tamanho->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($linha['nome']) ?></td>
+                                <td class="acoes">
+                                    <a href="processa_ativa_tamanho.php?id=<?= $linha['id'] ?>" class="btn-editar">Ativar</a>
+                                    <a href="excluir_tamanho.php?id=<?= $linha['id'] ?>" class="btn-excluir">Excluir</a>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </body>
 
 </html>

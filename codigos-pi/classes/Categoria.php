@@ -16,23 +16,29 @@ class Categoria
     //Metodo de verificação de categoria existente
     public function categoriaExiste()
     {
-        $query = "SELECT id FROM " . $this->tabela_categoria . " WHERE nome = ? LIMIT 1";
+        $this->nome = trim($this->nome);
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $this->nome);
+        if (!empty($this->id)) {
+            $query = "SELECT id FROM " . $this->tabela_categoria .  " WHERE nome = ? AND id != ? LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("si", $this->nome, $this->id);
+        } else {
+            $query = "SELECT id FROM " . $this->tabela_categoria . " WHERE nome = ? LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("s", $this->nome);
+        }
+
         $stmt->execute();
         $stmt->store_result();
 
-        if ($stmt->num_rows > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $stmt->num_rows > 0;
     }
 
     //Metodo de criação de categoria
     public function criar()
     {
+        $this->nome = trim($this->nome);
+
         if ($this->CategoriaExiste()) {
             return false;
         }
@@ -53,7 +59,19 @@ class Categoria
     //Metodo de listagem de categoria
     public function listar()
     {
-        $query = "SELECT * FROM " . $this->tabela_categoria . " ORDER BY nome";
+        $query = "SELECT * FROM " . $this->tabela_categoria . " WHERE ativo = TRUE ORDER BY nome";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        return $resultado;
+    }
+
+    //Metodo de listagem de categorias inativas
+    public function listarInativo()
+    {
+        $query = "SELECT * FROM " . $this->tabela_categoria . " WHERE ativo = FALSE ORDER BY nome";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -73,6 +91,23 @@ class Categoria
             return true;
         }
         return false;
+    }
+
+    //Metodo verificação de categoria em uso
+    public function categoriaEmUso()
+    {
+        $query = "SELECT COUNT(*) as total_uso FROM produto_anuncio WHERE fk_categoria_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+        $stmt->execute();
+        $resultado = $stmt->get_result()->fetch_assoc();
+
+        if ($resultado['total_uso'] > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //Metodo de busca de categoria usando id
@@ -97,7 +132,33 @@ class Categoria
         $query = "UPDATE " . $this->tabela_categoria . " SET nome = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("si", $this->nome, $this->id);
-        if ($stmt->execute()){
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    //Metodo de inativação de categoria soft delete
+    public function inativar()
+    {
+        $query = "UPDATE " . $this->tabela_categoria . " SET ativo = FALSE WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    //Metodo de reativação de categoria
+    public function reativar()
+    {
+        $query = "UPDATE " . $this->tabela_categoria . " SET ativo = TRUE WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+
+        if ($stmt->execute()) {
             return true;
         }
         return false;

@@ -11,7 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['nome'])) {
         $cor->nome = $_POST['nome'];
-
+        
+        if ($cor->CorExiste()) {
+            $_SESSION['msg_erro'] = $mensagens['cor_duplicada'];
+            header("Location: cor.php");
+            exit();
+        }
         if ($cor->criar()) {
             $_SESSION['msg_sucesso'] = $mensagens['cor_criada'];
             header("Location: cor.php");
