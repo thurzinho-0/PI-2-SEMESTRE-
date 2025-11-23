@@ -1,0 +1,51 @@
+/* Estilo geral da página */
+body {
+    display: flex;                  /* Flexbox para centralizar conteúdo */
+    justify-content: center;        /* Centraliza horizontalmente */
+    align-items: center;            /* Centraliza verticalmente */
+    min-height: 100vh;              /* Ocupa altura total da tela */
+    margin: 0;                     /* Remove margens padrão */
+    padding: 20px;                 /* Espaço interno nas bordas */
+    background-color: hsl(0, 0%, 68%); /* Fundo cinza claro */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+      Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* Fonte moderna */
+  }
+  
+  /* Container principal da mensagem */
+  .container {
+    background: #fff;              /* Fundo branco para destaque */
+    padding: 30px 40px;            /* Espaço interno confortável */
+    border-radius: 20px;           /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+    max-width: 450px;              /* Largura máxima */
+    width: 90%;                   /* Responsivo em telas pequenas */
+    text-align: center;           /* Centraliza texto */
+  }
+  
+  /* Título da mensagem */
+  .container h2 {
+    margin-bottom: 15px;          /* Espaço abaixo do título */
+    color: #151717;               /* Cor escura */
+    font-weight: 700;             /* Negrito */
+  }
+  
+  /* Parágrafos */
+  .container p {
+    margin: 10px 0;               /* Espaçamento vertical */
+    color: #444;                  /* Cor cinza escuro para texto */
+    font-size: 16px;
+  }
+  
+  /* Link dentro do container */
+  .container a {
+    color: #2d79f3;               /* Azul chamativo */
+    font-weight: 600;             /* Negrito para destaque */
+    text-decoration: none;        /* Remove sublinhado */
+    cursor: pointer;              /* Muda o cursor ao passar o mouse */
+    transition: color 0.2s ease; /* Animação suave */
+  }
+  
+  .container a:hover {
+    color: #e9482b;               /* Cor de destaque ao passar o mouse */
+  }
+  

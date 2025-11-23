@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eee;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 8px 0;
+}
+
+form {
+    margin-bottom: 16px;
+}
+
+input[type="text"] {
+    padding: 4px;
+}
+
+button {
+    padding: 4px 8px;
+}
+
+table {
+    background: #fff;
+    border: 1px solid #aaa;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+}
+
+th, td {
+    border: 1px solid #aaa;
+    padding: 6px;
+    text-align: left;
+}
+
+.msg {
+    padding: 6px 10px;
+    margin-bottom: 10px;
+}
+
+.sucesso {
+    background: #d4edda;
+    color: #155724;
+}
+
+.erro {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+a {
+    color: #1769aa;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,121 @@
+ body {
+      display: flex; /* Usamos flexbox para alinhar tudo */
+      flex-direction: column; /* Coloca elementos em coluna: logo, campos e botão */
+      justify-content: center; /* Centraliza verticalmente */
+      align-items: center; /* Centraliza horizontalmente */
+      min-height: 100vh; /* Faz a página ocupar toda a tela */
+      background-color: hsl(0, 0%, 68%); /* Um fundo suave para não cansar os olhos */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0; /* Remove a margem padrão do navegador */
+      padding: 20px; /* Dá um espacinho para não grudar nas bordas da tela */
+    }
+
+    /* ====================
+       Estilo do formulário
+       ==================== */
+    .form {
+      display: flex;
+      flex-direction: column; /* Tudo em coluna dentro do formulário também */
+      gap: 10px; /* Espaço entre cada campo, deixa mais limpo */
+      background: #fff; /* Fundo branco para destacar do fundo da página */
+      padding: 30px; /* Espaço interno para os elementos respirarem */
+      width: 450px; /* Largura do formulário em telas grandes */
+      max-width: 90%; /* Mas não deixa quebrar em telas pequenas */
+      border-radius: 20px; /* Bordas arredondadas para um visual moderno */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+    }
+
+    ::placeholder { font-family: inherit; } /* Faz o texto dos placeholders combinar com a fonte da página */
+    .flex-column > label { color:#151717; font-weight:600; } /* Labels em negrito e escuro para destacar */
+
+    /* ====================
+       Container dos inputs com ícones
+       ==================== */
+       .inputForm {
+        background: #fff; /* Fundo branco dentro do container do input */
+        border: 1.5px solid #ecedec; /* Borda clara padrão */
+        border-radius: 10px; /* Bordas arredondadas para suavizar visual */
+        height: 50px; /* Altura fixa do campo */
+        display: flex; /* Flexbox para alinhar ícone + input */
+        align-items: center; /* Alinha verticalmente ao centro */
+        padding-left: 10px; /* Espaço à esquerda para o ícone */
+        transition: 0.2s ease; /* Transição suave para efeitos */
+      }
+      
+      /* ====================
+         Estilo do campo input dentro do container
+         ==================== */
+      .input {
+        background: transparent; /* Fundo transparente para deixar o container mostrar o fundo */
+        border: none; /* Remove borda do input (fica só a do container) */
+        margin-left: 10px; /* Espaço entre o ícone e o input */
+        width: 85%; /* Ocupa quase todo espaço disponível */
+        height: 100%; /* Preenche a altura do container */
+        padding: 0 10px; /* Espaçamento interno para o texto não colar nas bordas */
+        font-size: 14px; /* Tamanho da fonte legível */
+        outline: none; /* Remove contorno padrão azul do navegador ao focar */
+      }
+      
+    .input:focus { outline:none; } /* Remove aquele contorno azul padrão do navegador */
+    .inputForm:focus-within { border-color:#2d79f3; } /* Quando clica no input, a borda do container fica azul */
+
+    /* ====================
+       Botão de enviar
+       ==================== */
+    .button-submit {
+      margin: 20px 0 10px 0; /* Espaço em cima e embaixo do botão */
+      background:#151717; /* Cor escura para contraste com o fundo */
+      border:none; 
+      color:white; /* Texto branco para destacar */
+      font-size:15px; 
+      font-weight:500; 
+      border-radius:10px; 
+      height:50px; 
+      width:100%; /* Ocupa toda a largura do formulário */
+      cursor:pointer; /* Muda o cursor para mãozinha, indica que é clicável */
+      transition:0.2s; /* Suaviza a mudança de cor ao passar o mouse */
+    }
+    .button-submit:hover { background:#e9482b; } /* Muda a cor quando passa o mouse, dá feedback visual */
+
+    /* ====================
+       Links clicáveis
+       ==================== */
+    .span { font-size:14px; color:#2d79f3; font-weight:500; cursor:pointer; } 
+
+    /* ====================
+       Logo do formulário
+       ==================== */
+    .logo { 
+      text-align:center; 
+      margin-bottom:15px; /* Pequeno espaço abaixo da logo */
+      display:flex; 
+      justify-content:center; 
+      align-items:center; 
+      width:100%;
+    }
+    .logo img { 
+      width:250px; 
+      height:auto; 
+      max-width:100%; /* Responsivo, não ultrapassa o container */
+    }
+
+    /* ====================
+       Botões secundários (ex: login com Google)
+       ==================== */
+    .btn {
+      margin-top:10px;
+      width:100%;
+      height:50px;
+      border-radius:10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:500;
+      gap:10px;
+      border:1px solid #ededef;
+      background:#fff;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .btn:hover { border-color:#2d79f3; }
+    .google svg { width:20px; height:20px; }

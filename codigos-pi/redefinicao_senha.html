@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"> 
+  <title>Redefinir Senha</title> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/redefinicaosenha.css"> <!-- Link para o arquivo CSS externo -->
+</head>
+<body>
+  <!-- Container principal do formulário -->
+  <div class="form">
+
+     <!-- Container da logo da empresa -->
+  <div class="logo">
+    <img src="assets/imagens/Logo.jpg" alt="Logo da Empresa"> <!-- Imagem da logo com texto alternativo -->
+  </div>
+
+    <!-- Grupo para o campo de nova senha -->
+    <div class="flex-column">
+      <!-- Label associado ao input pela propriedade "for" -->
+      <label for="nova_senha">Nova Senha</label> 
+      <!-- Container do input para estilização -->
+      <div class="inputForm"> 
+         <!-- Campo para digitar a nova senha; "required" obriga o preenchimento -->
+        <input class="input" type="password" name="nova_senha" placeholder="Nova senha" required> 
+      </div>
+    </div>
+  
+    <!-- Grupo para o campo de confirmação de senha -->
+    <div class="flex-column">
+      <!-- Label para o campo confirmar senha -->
+      <label for="confirmar_senha">Confirmar Senha</label> 
+      <!-- Container do input para estilização -->
+      <div class="inputForm"> 
+         <!-- Campo para confirmar a senha digitada; também obrigatório -->
+        <input class="input" type="password" name="confirmar_senha" placeholder="Confirmar senha" required> 
+      </div>
+    </div>
+  
+    <!-- Botão para enviar o formulário -->
+    <button type="submit" class="button-submit">Salvar nova senha</button>
+  
+    <!-- Link para voltar à página de login -->
+    <p class="p"><a href="login.php">Voltar para o login</a></p>
+  </div>
+  
+</body>
+</html>
