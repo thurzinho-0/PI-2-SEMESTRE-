@@ -25,13 +25,14 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `nome` varchar(128) NOT NULL,
   `ativo` tinyint(4) DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela cxstorebd.categoria: ~3 rows (aproximadamente)
 INSERT INTO `categoria` (`id`, `nome`, `ativo`) VALUES
 	(4, 'Calça', 1),
 	(5, 'Acessório', 1),
-	(6, 'Camiseta', 1);
+	(6, 'Camiseta', 1),
+	(7, 'Bermuda', 1);
 
 -- Copiando estrutura para tabela cxstorebd.cor
 CREATE TABLE IF NOT EXISTS `cor` (
@@ -39,12 +40,14 @@ CREATE TABLE IF NOT EXISTS `cor` (
   `nome` varchar(128) NOT NULL,
   `ativo` tinyint(4) DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela cxstorebd.cor: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela cxstorebd.cor: ~4 rows (aproximadamente)
 INSERT INTO `cor` (`id`, `nome`, `ativo`) VALUES
 	(1, 'Azul', 1),
-	(3, 'Bege', 1);
+	(3, 'Bege', 1),
+	(6, 'Vermelho', 1),
+	(7, 'Preto', 1);
 
 -- Copiando estrutura para tabela cxstorebd.imagem_produto
 CREATE TABLE IF NOT EXISTS `imagem_produto` (
@@ -54,9 +57,14 @@ CREATE TABLE IF NOT EXISTS `imagem_produto` (
   PRIMARY KEY (`id`),
   KEY `FK_produto_anuncio` (`fk_produto_anuncio`),
   CONSTRAINT `FK_produto_anuncio` FOREIGN KEY (`fk_produto_anuncio`) REFERENCES `produto_anuncio` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela cxstorebd.imagem_produto: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela cxstorebd.imagem_produto: ~4 rows (aproximadamente)
+INSERT INTO `imagem_produto` (`id`, `fk_produto_anuncio`, `caminho`) VALUES
+	(117, 45, '692384e6f41b6_1c63340a-728c-4f11-8ab9-17baef4b6818(1).jpg'),
+	(118, 45, '692384e7007e9_61fc27fd-6434-4821-b813-1477832a544f(1).jpg'),
+	(119, 45, '692384e700e55_a3178562-8dec-45d9-ad7f-fe6e5f39ea40 - Copia.jpg'),
+	(120, 45, '692384e7014dd_c030ab9a-38a3-4717-8128-9303c26f09e9.jpg');
 
 -- Copiando estrutura para tabela cxstorebd.pedido
 CREATE TABLE IF NOT EXISTS `pedido` (
@@ -88,6 +96,24 @@ CREATE TABLE IF NOT EXISTS `pedido_item` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela cxstorebd.pedido_item: ~0 rows (aproximadamente)
+
+-- Copiando estrutura para tabela cxstorebd.pedido_item_snapshot
+CREATE TABLE IF NOT EXISTS `pedido_item_snapshot` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_pedido_item_id` int(11) NOT NULL,
+  `nome_produto` varchar(255) NOT NULL,
+  `nome_categoria` varchar(128) NOT NULL,
+  `nome_cor` varchar(128) DEFAULT NULL,
+  `nome_tamanho` varchar(50) DEFAULT NULL,
+  `preco_unitario` decimal(10,2) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pedido_item_id` (`fk_pedido_item_id`),
+  CONSTRAINT `pedido_item_snapshot_ibfk_1` FOREIGN KEY (`fk_pedido_item_id`) REFERENCES `pedido_item` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Copiando dados para a tabela cxstorebd.pedido_item_snapshot: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para procedure cxstorebd.proc_atualizar_cor
 DELIMITER //
@@ -200,9 +226,12 @@ CREATE TABLE IF NOT EXISTS `produto_anuncio` (
   PRIMARY KEY (`id`),
   KEY `FK_produto_anuncio_categoria` (`fk_categoria_id`),
   CONSTRAINT `FK_produto_anuncio_categoria` FOREIGN KEY (`fk_categoria_id`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela cxstorebd.produto_anuncio: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela cxstorebd.produto_anuncio: ~2 rows (aproximadamente)
+INSERT INTO `produto_anuncio` (`id`, `nome`, `descricao`, `imagem`, `fk_categoria_id`, `preco`, `status`, `ativo`) VALUES
+	(45, 'Sufgan', 'Algodão', '692384e0e4444_1c63340a-728c-4f11-8ab9-17baef4b6818.jpg', 7, 70.00, '1', 1),
+	(46, 'Calça Cargo Básica ', 'Jeans', '6923850002684_050efe71-35e3-45a5-88c1-0cc9425aaea7.jpg', 4, 90.00, '1', 1);
 
 -- Copiando estrutura para tabela cxstorebd.tamanho
 CREATE TABLE IF NOT EXISTS `tamanho` (
@@ -212,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `tamanho` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela cxstorebd.tamanho: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela cxstorebd.tamanho: ~3 rows (aproximadamente)
 INSERT INTO `tamanho` (`id`, `nome`, `ativo`) VALUES
 	(1, 'P', 1),
 	(2, 'G', 1),
@@ -249,9 +278,29 @@ CREATE TABLE IF NOT EXISTS `variacao_produto` (
   CONSTRAINT `FK_variacao_produto_anuncio` FOREIGN KEY (`fk_produto_anuncio_id`) REFERENCES `produto_anuncio` (`id`) ON DELETE CASCADE,
   CONSTRAINT `FK_variacao_produto_cor` FOREIGN KEY (`fk_cor_id`) REFERENCES `cor` (`id`) ON DELETE CASCADE,
   CONSTRAINT `FK_variacao_produto_tamanho` FOREIGN KEY (`fk_tamanho_id`) REFERENCES `tamanho` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela cxstorebd.variacao_produto: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela cxstorebd.variacao_produto: ~19 rows (aproximadamente)
+INSERT INTO `variacao_produto` (`id`, `fk_produto_anuncio_id`, `fk_cor_id`, `fk_tamanho_id`, `disponivel`) VALUES
+	(126, 45, 1, 2, 1),
+	(127, 45, 1, 4, 1),
+	(128, 45, 1, 3, 1),
+	(129, 45, 1, 1, 1),
+	(130, 45, 3, 2, 1),
+	(131, 45, 3, 4, 1),
+	(132, 45, 3, 3, 1),
+	(133, 45, 3, 1, 1),
+	(134, 46, 3, 2, 1),
+	(135, 46, 3, 4, 1),
+	(136, 46, 1, 4, 1),
+	(137, 46, 1, 3, 1),
+	(138, 46, 1, 1, 1),
+	(139, 46, 7, 4, 1),
+	(140, 46, 7, 1, 1),
+	(141, 46, 6, 4, 1),
+	(142, 46, 6, 1, 1),
+	(143, 45, 7, 1, 1),
+	(144, 45, 6, 4, 1);
 
 -- Copiando estrutura para trigger cxstorebd.tr_cor_ativada
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
