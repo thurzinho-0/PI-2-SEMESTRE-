@@ -32,6 +32,7 @@
     .flex-column > label { color:#151717; font-weight:600; } /* Labels em negrito e escuro para destacar */
 
     /* ====================
+<<<<<<< HEAD
    Container dos inputs com ícones
    ==================== */
 .inputForm {
@@ -73,6 +74,30 @@
 .inputForm:focus-within {
   border-color: #2d79f3; /* Borda azul para indicar que o campo está ativo */
 }
+=======
+       Container dos inputs com ícones
+       ==================== */
+    .inputForm {
+      border: 1.5px solid #ecedec; /* Borda clara por padrão */
+      border-radius: 10px; /* Bordas arredondadas combinando com o formulário */
+      height: 50px; /* Altura padrão de campo */
+      display: flex; /* Para alinhar ícone e input lado a lado */
+      align-items: center; /* Centraliza verticalmente */
+      padding-left: 10px; /* Espaço do lado do ícone */
+      transition: 0.2s; /* Deixa suave quando muda de estado */
+    }
+
+    .input {
+      margin-left: 10px; /* Afasta o input do ícone */
+      border-radius: 10px;
+      border: none; /* Sem borda, só a do container */
+      width: 85%; /* Ocupa quase todo o espaço restante do container */
+      height: 100%; /* Ocupa toda a altura do container */
+    }
+
+    .input:focus { outline:none; } /* Remove aquele contorno azul padrão do navegador */
+    .inputForm:focus-within { border-color:#2d79f3; } /* Quando clica no input, a borda do container fica azul */
+>>>>>>> origin/backend
 
     /* ====================
        Botão de enviar

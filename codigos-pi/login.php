@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- <?php
+=======
+<?php
+>>>>>>> origin/backend
 $mensagem_erro = ''; 
 
 if (isset($_GET['erro'])) {
@@ -6,14 +10,21 @@ if (isset($_GET['erro'])) {
         $mensagem_erro = "Usuário ou senha inválidos. Tente novamente.";
     }
 }
+<<<<<<< HEAD
 ?>  -->
+=======
+?>
+>>>>>>> origin/backend
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+=======
+>>>>>>> origin/backend
     <title>Formulário de Cadastro</title>
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
@@ -51,7 +62,11 @@ if (isset($_GET['erro'])) {
 
         <button class="button-submit">Login</button>
 
+<<<<<<< HEAD
         <p class="p">Esqueceu a senha? <span class="span"><a href="redefinicao_senha.html">Clique aqui</a></span></p>
+=======
+        <p class="p">Esqueceu a senha? <span class="span"><a href="#">Clique aqui</a></span></p>
+>>>>>>> origin/backend
         <p class="p">Ainda não possui uma conta? <span class="span"><a href="cadastro.php">Cadastre-se</a></span></p>
     </form>
 </body>

@@ -31,6 +31,7 @@
     /* ====================
        Container dos inputs com ícones
        ==================== */
+<<<<<<< HEAD
        .inputForm {
         background: #fff; /* Fundo branco dentro do container do input */
         border: 1.5px solid #ecedec; /* Borda clara padrão */
@@ -56,6 +57,26 @@
         outline: none; /* Remove contorno padrão azul do navegador ao focar */
       }
       
+=======
+    .inputForm {
+      border: 1.5px solid #ecedec; /* Borda clara por padrão */
+      border-radius: 10px; /* Bordas arredondadas combinando com o formulário */
+      height: 50px; /* Altura padrão de campo */
+      display: flex; /* Para alinhar ícone e input lado a lado */
+      align-items: center; /* Centraliza verticalmente */
+      padding-left: 10px; /* Espaço do lado do ícone */
+      transition: 0.2s; /* Deixa suave quando muda de estado */
+    }
+
+    .input {
+      margin-left: 10px; /* Afasta o input do ícone */
+      border-radius: 10px;
+      border: none; /* Sem borda, só a do container */
+      width: 85%; /* Ocupa quase todo o espaço restante do container */
+      height: 100%; /* Ocupa toda a altura do container */
+    }
+
+>>>>>>> origin/backend
     .input:focus { outline:none; } /* Remove aquele contorno azul padrão do navegador */
     .inputForm:focus-within { border-color:#2d79f3; } /* Quando clica no input, a borda do container fica azul */
 

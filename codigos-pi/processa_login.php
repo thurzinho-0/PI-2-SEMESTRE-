@@ -18,7 +18,11 @@
             $_SESSION['tipo_usuario'] = $usuario->tipo_usuario;
 
             if($usuario->tipo_usuario == 'admin'){
+<<<<<<< HEAD
                 header("Location: admin/controle.php");
+=======
+                header("Location: admin/painelanuncio.php");
+>>>>>>> origin/backend
             } else {
                 header("Location: cliente/home.php");
             }

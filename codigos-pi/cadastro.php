@@ -10,14 +10,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Cadastro</title>
+<<<<<<< HEAD
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/cadastro.css">
+=======
+  <link rel="stylesheet" href="/assets/css/cadastro.css">
+>>>>>>> origin/backend
 </head>
 <body>
   <form class="form" method="POST" action="processa_cadastro.php">
     <!-- Logo no topo para identidade visual -->
     <div class="logo">
+<<<<<<< HEAD
       <img src="assets/imagens/Logo.jpg" alt="Logo">
+=======
+      <img src="/assets/imagens/Logo.jpg" alt="Logo">
+>>>>>>> origin/backend
     </div>
 
     <!-- Campo de telefone/contato -->

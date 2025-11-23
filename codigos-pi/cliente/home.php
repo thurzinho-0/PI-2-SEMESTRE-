@@ -1,6 +1,9 @@
+<<<<<<< HEAD
  <?php 
   require_once ("sessao_cliente.php");
 ?>
+=======
+>>>>>>> origin/backend
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,7 +33,11 @@
      CABEÇALHO COM LOGO
      ============================== -->
 <header>
+<<<<<<< HEAD
   <img src="assets/css/painelanuncio.css" alt="Cx Store Logo" />
+=======
+  <img src="assets/css/painelanuncio.css" alt="Ex Store Logo" />
+>>>>>>> origin/backend
 </header>
 
 <!-- ==============================
