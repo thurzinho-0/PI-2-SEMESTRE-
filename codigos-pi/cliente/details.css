@@ -1,0 +1,614 @@
+/* =====================================================================
+   VARIÁVEIS CSS (ROOT)
+   Define as cores e valores padrão do projeto
+===================================================================== */
+:root {
+  --primary: #6f8b6f;           /* Cor primária (botão verde) */
+  --muted: #f1f1f1;             /* Cor de fundo suave */
+  --text: #111;                 /* Cor do texto principal */
+  --accent: #6b4a36;            /* Cor de destaque (marrom) */
+  --container: 1200px;          /* Largura máxima do container */
+  --cor-cinza: #e0e0e0;         /* Cor cinza para bordas */
+  --transicao-padrao: all 0.3s ease; /* Transição suave padrão */
+}
+
+/* =====================================================================
+   RESET E ESTILOS GLOBAIS
+===================================================================== */
+* {
+  box-sizing: border-box; /* Facilita cálculo de dimensões */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  margin: 0;
+  background: #fff;
+  line-height: 1.5;
+}
+
+/* =====================================================================
+   CONTAINER PRINCIPAL
+===================================================================== */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* =====================================================================
+   CABEÇALHO (HEADER)
+===================================================================== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;           /* Header fixo ao rolar */
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ----- Logo ----- */
+.logo-container {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--cor-cinza);
+  flex-shrink: 0;             /* Não encolhe em telas pequenas */
+}
+
+.logo-container img {
+  width: 180px;               /* Tamanho padrão da logo */
+  height: auto;
+  max-width: 100%;
+  transition: var(--transicao-padrao);
+  display: block;
+}
+
+.logo-container img:hover {
+  transform: scale(1.05);     /* Efeito de zoom ao passar o mouse */
+}
+
+/* ----- Navegação ----- */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;                    /* Ocupa espaço disponível */
+}
+
+.nav-bar .main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-bar .main-nav a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.nav-bar .main-nav a:hover {
+  color: #6f8b6f;             /* Muda cor ao passar o mouse */
+}
+
+/* ----- Ações do header (perfil e carrinho) ----- */
+.header-actions {
+  margin-left: auto;          /* Empurra para a direita */
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.action-icon {
+  color: #111;
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.action-icon:hover {
+  color: #6f8b6f;
+}
+
+/* Contador do carrinho */
+.cart-count {
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+/* =====================================================================
+   BREADCRUMBS (CAMINHO DE NAVEGAÇÃO)
+===================================================================== */
+.breadcrumbs {
+  font-size: 14px;
+  color: #666;
+  margin: 24px 0;
+}
+
+.breadcrumbs a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+  color: #111;
+}
+
+.breadcrumbs .sep {
+  margin: 0 8px;              /* Espaçamento do separador "/" */
+}
+
+/* =====================================================================
+   LAYOUT DO DETALHE DO PRODUTO (2 COLUNAS)
+===================================================================== */
+.product-detail {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+/* =====================================================================
+   COLUNA DA GALERIA (IMAGEM DO PRODUTO)
+===================================================================== */
+.gallery-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container da imagem principal */
+.main-image {
+  width: 100%;
+  background: var(--muted);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 500px;
+  padding: 40px;
+}
+
+.main-image img {
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;        /* Mantém proporção da imagem */
+  transition: opacity 0.15s ease;
+}
+
+/* Botão de favoritos (coração) */
+.wish-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: #fff;
+  padding: 12px;
+  border-radius: 50%;         /* Botão redondo */
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  transition: transform 0.2s;
+}
+
+.wish-btn:hover {
+  transform: scale(1.1);      /* Aumenta ao passar o mouse */
+}
+
+.wish-btn i {
+  color: #e74c3c;             /* Coração vermelho */
+  font-size: 18px;
+}
+
+/* =====================================================================
+   COLUNA DE INFORMAÇÕES DO PRODUTO
+===================================================================== */
+.info-col {
+  width: 50%;
+}
+
+/* Título do produto */
+.product-title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* Meta informações (avaliação e SKU) */
+.meta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+/* Avaliação com estrelas */
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating i {
+  color: #ffb400;             /* Estrelas douradas */
+  margin-right: 2px;
+  font-size: 16px;
+}
+
+.reviews {
+  margin-left: 8px;
+  color: #999;
+  font-size: 13px;
+}
+
+.sku {
+  font-size: 13px;
+}
+
+/* Descrição curta */
+.short-desc {
+  color: #555;
+  margin: 0 0 24px;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* =====================================================================
+   PREÇOS E PROMOÇÃO
+===================================================================== */
+.prices {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+/* Preço antigo (riscado) */
+.price-old {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+/* Preço atual (destaque) */
+.price-current {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Informação de parcelamento */
+.pay-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Badge de promoção */
+.promo {
+  background: #f6f8f6;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #4a7d4a;
+  font-weight: 600;
+  width: max-content;         /* Largura ajustável ao conteúdo */
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* =====================================================================
+   CAMPOS DO FORMULÁRIO (TAMANHO, COR, QUANTIDADE)
+===================================================================== */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* ----- Seleção de tamanhos ----- */
+.sizes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  border: 2px solid #ddd;
+  padding: 10px 16px;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.size-btn:hover {
+  border-color: #999;
+}
+
+.size-btn.active {
+  border-color: var(--text);
+  background: #f6f6f6;        /* Fundo cinza quando selecionado */
+}
+
+/* ----- Seleção de cores (swatches) ----- */
+.colors {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+}
+
+.color-swatch.selected {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;        /* Destaque quando selecionado */
+}
+
+/* ----- Controles de quantidade ----- */
+.qty-field .qty-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty-controls button {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.qty-controls button:hover {
+  border-color: #999;
+  background: #f9f9f9;
+}
+
+.qty-controls input {
+  width: 70px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =====================================================================
+   BOTÕES DE AÇÃO (ADICIONAR E CONSULTAR)
+===================================================================== */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botão "Adicionar à Sacola" (verde) */
+.btn.add {
+  background: var(--primary);
+  color: #fff;
+  flex: 1;
+  justify-content: center;
+}
+
+.btn.add:hover {
+  background: #5f7a5f;        /* Verde mais escuro ao hover */
+  transform: translateY(-1px); /* Move para cima */
+  box-shadow: 0 4px 12px rgba(111,139,111,0.3);
+}
+
+/* Botão "Consultar" (preto) */
+.btn.consult {
+  background: #000;
+  color: #fff;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.btn.consult:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* =====================================================================
+   INFORMAÇÕES EXTRAS (FRETE E TROCA)
+===================================================================== */
+.extra-info {
+  margin-top: 24px;
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.extra-info p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.extra-info i {
+  color: #6f8b6f;
+  font-size: 16px;
+}
+
+/* =====================================================================
+   RODAPÉ (FOOTER)
+===================================================================== */
+.site-footer {
+  border-top: 1px solid #eee;
+  padding: 32px 0;
+  margin-top: 48px;
+  background: #fafafa;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-inner h4 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.footer-inner p,
+.footer-inner ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer-inner ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* =====================================================================
+   MEDIA QUERIES (RESPONSIVIDADE)
+===================================================================== */
+
+/* Tablets e telas médias */
+@media (max-width: 900px) {
+  .product-detail {
+    flex-direction: column;   /* Empilha as colunas */
+    gap: 32px;
+  }
+  
+  .gallery-col,
+  .info-col {
+    width: 100%;              /* Largura total */
+  }
+  
+  .main-image {
+    min-height: 400px;
+    padding: 24px;
+  }
+  
+  .logo-container img {
+    width: 150px;             /* Logo menor em tablets */
+  }
+  
+  .nav-bar .main-nav {
+    gap: 16px;
+  }
+  
+  .nav-bar .main-nav a {
+    font-size: 14px;
+  }
+  
+  .product-title {
+    font-size: 22px;
+  }
+  
+  .price-current {
+    font-size: 28px;
+  }
+  
+  .actions {
+    flex-direction: column;   /* Botões empilhados */
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 600px) {
+  .main-image {
+    min-height: 320px;
+  }
+  
+  .header-inner {
+    flex-wrap: wrap;
+  }
+  
+  .logo-container {
+    width: 100%;
+    order: -1;                /* Logo aparece primeiro */
+  }
+  
+  .logo-container img {
+    width: 130px;             /* Logo ainda menor em mobile */
+  }
+  
+  .nav-bar {
+    order: 3;
+    width: 100%;
+  }
+  
+  .nav-bar .main-nav {
+    width: 100%;
+    justify-content: space-around; /* Distribui menu uniformemente */
+  }
+}

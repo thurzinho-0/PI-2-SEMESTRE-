@@ -1,0 +1,301 @@
+ /* ==============================
+     ESTILOS GERAIS DA PÁGINA
+     ============================== */
+ body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     /* Fonte moderna e limpa */
+     margin: 0 auto;
+     max-width: 1200px;
+     /* Limita a largura máxima para centralizar o conteúdo */
+     padding: 20px;
+     box-sizing: border-box;
+     background-color: #f9f9f9;
+     /* Fundo neutro */
+ }
+
+ /* ==============================
+     CABEÇALHO E LOGO
+     ============================== */
+ header {
+     display: flex;
+     justify-content: center;
+     margin-bottom: 30px;
+     padding-top: 80px;
+     /* Espaço extra para os ícones fixos no topo */
+ }
+
+ header img {
+     height: 60px;
+     max-width: 100%;
+     /* Mantém o logo responsivo */
+ }
+
+ /* ==============================
+     ÍCONES FIXOS NO TOPO DIREITO
+     ============================== */
+ .top-icons {
+     position: fixed;
+     top: 20px;
+     right: 20px;
+     /* Distância da borda direita */
+     display: flex;
+     gap: 15px;
+     /* Espaçamento entre os ícones */
+     z-index: 1000;
+     /* Garante que fiquem acima de outros elementos */
+ }
+
+ .top-icons svg {
+     width: 24px;
+     height: 24px;
+     cursor: pointer;
+     stroke: #999;
+     /* Cor base (cinza) */
+     stroke-width: 2px;
+     transition: stroke 0.3s ease;
+     /* Efeito suave ao passar o mouse */
+ }
+
+ .top-icons svg:hover {
+     stroke: #d10000;
+     /* Cor vermelha ao passar o mouse */
+ }
+
+ .top-icons svg.active {
+     stroke: #d10000;
+     /* Ícone ativo destacado em vermelho */
+ }
+
+ /* ==============================
+     TÍTULO DA SEÇÃO
+     ============================== */
+ h2 {
+     border-bottom: 2px solid #d10000;
+     width: 120px;
+     font-weight: 600;
+     margin-bottom: 20px;
+     padding-bottom: 5px;
+ }
+
+ /* ==============================
+     CONTAINER DA TABELA
+     ============================== */
+ .table-container {
+     overflow-x: auto;
+     /* Adiciona rolagem horizontal em telas pequenas */
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     /* Sombra suave */
+     background-color: #fff;
+ }
+
+ /* ==============================
+     TABELA DE PRODUTOS
+     ============================== */
+ table {
+     width: 100%;
+     min-width: 600px;
+     /* Evita que a tabela "quebre" em telas grandes */
+     border-collapse: collapse;
+     color: #000;
+ }
+
+ /* CABEÇALHO DA TABELA */
+ thead {
+     background-color: #000;
+     /* Fundo preto */
+     color: #fff;
+     /* Texto branco */
+ }
+
+ thead th {
+     padding: 12px 15px;
+     text-align: left;
+     font-weight: 600;
+     white-space: nowrap;
+     /* Evita quebra de linha */
+ }
+
+ /* CORPO DA TABELA */
+ tbody td {
+     padding: 12px 15px;
+     border-bottom: 1px solid #ddd;
+     vertical-align: middle;
+     transition: background-color 0.2s ease;
+     /* Efeito hover suave */
+ }
+
+ tbody tr:hover {
+     background-color: #f5f5f5;
+     /* Destaque da linha ao passar o mouse */
+ }
+
+ /* ==============================
+     IMAGENS DOS PRODUTOS
+     ============================== */
+ tbody td img.product-img {
+     height: 100px;
+     /* <<< Aumentado (antes era 50px) */
+     width: 100px;
+     object-fit: contain;
+     /* Garante que a imagem se ajuste sem cortar */
+     border-radius: 6px;
+     /* Bordas levemente arredondadas */
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+     /* Pequena sombra para destaque */
+ }
+
+ /* ==============================
+     COLUNAS ESPECÍFICAS
+     ============================== */
+ .price,
+ .date {
+     white-space: nowrap;
+     font-weight: 500;
+ }
+
+ /* ==============================
+     BOTÃO DE STATUS (ATIVO/INATIVO)
+     ============================== */
+ .status-switch {
+     position: relative;
+     display: inline-block;
+     width: 42px;
+     height: 22px;
+     margin-right: 10px;
+ }
+
+ .status-switch input {
+     opacity: 0;
+     width: 0;
+     height: 0;
+ }
+
+ .slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #ccc;
+     transition: .4s;
+     border-radius: 12px;
+ }
+
+ .slider:before {
+     position: absolute;
+     content: "";
+     height: 18px;
+     width: 18px;
+     left: 2px;
+     bottom: 2px;
+     background-color: white;
+     transition: .4s;
+     border-radius: 50%;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+ }
+
+ input:checked+.slider {
+     background-color: #4CAF50;
+     /* Verde quando ativo */
+ }
+
+ input:checked+.slider:before {
+     transform: translateX(20px);
+ }
+
+ /* ÍCONE DE EDIÇÃO (LÁPIS) */
+ .icon-edit {
+     cursor: pointer;
+     width: 20px;
+     height: 20px;
+     stroke: #666;
+     stroke-width: 2.5px;
+     fill: none;
+     transition: stroke 0.3s ease;
+     vertical-align: middle;
+ }
+
+ .icon-edit:hover {
+     stroke: #d10000;
+     /* Destaca o lápis ao passar o mouse */
+ }
+
+ /* LABEL DE STATUS (ATIVO/INATIVO) */
+ .status-label {
+     font-weight: 600;
+     color: #333;
+     padding-left: 8px;
+ }
+
+ .status-label.ativo {
+     color: #4CAF50;
+     /* Verde */
+ }
+
+ .status-label.inativo {
+     color: #999;
+     /* Cinza */
+ }
+
+ /* ==============================
+     RESPONSIVIDADE (TABLET E CELULAR)
+     ============================== */
+ @media (max-width: 768px) {
+     body {
+         padding: 10px;
+         max-width: 100%;
+     }
+
+     header {
+         padding-top: 100px;
+     }
+
+     .top-icons {
+         right: 10px;
+         top: 10px;
+         gap: 10px;
+     }
+
+     .top-icons svg {
+         width: 20px;
+         height: 20px;
+     }
+
+     h2 {
+         width: 100px;
+         font-size: 1.2em;
+     }
+
+     thead th,
+     tbody td {
+         padding: 8px 10px;
+         font-size: 0.9em;
+     }
+
+     .product-img {
+         height: 80px !important;
+         width: 80px !important;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .table-container {
+         font-size: 0.85em;
+     }
+
+     .status-switch {
+         width: 38px;
+         height: 20px;
+     }
+
+     .slider:before {
+         height: 16px;
+         width: 16px;
+     }
+
+     input:checked+.slider:before {
+         transform: translateX(18px);
+     }
+ }

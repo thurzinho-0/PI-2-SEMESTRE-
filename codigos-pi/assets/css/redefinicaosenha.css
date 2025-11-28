@@ -1,0 +1,153 @@
+/* ====================
+   Estilo global da página
+   ==================== */
+   body { 
+    display: flex; /* Flexbox para alinhar todo o conteúdo */
+    flex-direction: column; /* Organização vertical: logo, formulário, links */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Garante que ocupe a tela inteira */
+    background-color: hsl(0, 0%, 68%); /* Um fundo cinza suave */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 20px; /* Espaço interno para evitar que o conteúdo grude nas bordas */
+  }
+  
+  /* ====================
+     Estilo do formulário
+     ==================== */
+  .form {
+    display: flex;
+    flex-direction: column; /* Os elementos do formulário ficam empilhados */
+    gap: 10px; /* Espaço entre os campos */
+    background: #fff; /* Fundo branco para destaque */
+    padding: 30px; /* Espaçamento interno */
+    width: 450px; /* Largura padrão */
+    max-width: 90%; /* Responsivo para telas menores */
+    border-radius: 20px; /* Bordas arredondadas para visual moderno */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra para destacar do fundo */
+  }
+  
+  /* Placeholder segue a mesma fonte do site */
+  ::placeholder {
+    font-family: inherit;
+  }
+  
+  /* Label do input  */
+  .flex-column > label {
+    color: #151717;
+    font-weight: 600; /* Negrito para destaque */
+  }
+  
+  /* ====================
+     Campo com input de senha
+     ==================== */
+     .inputForm {
+        background: #fff; /* Fundo branco no container */
+        border: 1.5px solid #ffffff;
+        border-radius: 10px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        transition: 0.2s;
+      }
+  
+  /* Estilo do campo de input */
+  .input {
+    background: transparent; /* Sem fundo */
+    border: none;
+    margin-left: 10px;
+    width: 85%;
+    height: 100%;
+    padding: 0 10px; /* Espaçamento interno */
+    font-size: 14px; /* Opcional, deixa mais legível */
+  }
+
+  /* Remove contorno padrão ao focar no input */
+  .input:focus {
+    outline: none;
+  }
+  
+  /* Muda a cor da borda do container quando o campo estiver focado */
+  .inputForm:focus-within {
+    border-color: #2d79f3;
+  }
+  
+  /* ====================
+     Botão principal
+     ==================== */
+  .button-submit {
+    margin: 20px 0 10px 0;
+    background: #151717; /* Fundo escuro */
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  /* Cor alternativa quando o botão é focado */
+  .button-submit:hover {
+    background: #e9482b; /* Laranja escuro */
+  }
+  
+  /* ====================
+     Link de voltar para login
+     ==================== */
+  .span {
+    font-size: 14px;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  /* ====================
+     Parte da Logo
+     ==================== */
+  .logo { 
+      text-align:center; 
+      margin-bottom:15px; /* Pequeno espaço abaixo da logo */
+      display:flex; 
+      justify-content:center; 
+      align-items:center; 
+      width:100%;
+    }
+    .logo img { 
+      width:250px; 
+      height:auto; 
+      max-width:100%; /* Responsivo, não ultrapassa o container */
+    }
+  
+  /* ====================
+     Botões secundários (se precisar no futuro)
+     ==================== */
+  .btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .btn:hover {
+    border-color: #2d79f3;
+  }
+  
+  .google svg {
+    width: 20px;
+    height: 20px;
+  }
+  

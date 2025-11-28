@@ -1,0 +1,133 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding-top: 80px;
+}
+
+header img {
+  height: 60px;
+  max-width: 100%;
+}
+
+.top-icons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.logout-btn .button-link {
+  background-color: #d10000;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn .button-link:hover {
+  background-color: #a30000;
+}
+
+h2 {
+  text-align: center;
+  border-bottom: 2px solid #d10000;
+  display: inline-block;
+  font-weight: 600;
+  margin: 40px auto 60px auto;
+  padding-bottom: 8px;
+  width: auto;
+  display: block;
+}
+
+.dashboard-panel {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  gap: 30px;
+  justify-content: center;
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+.card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 50px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #d10000;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px rgba(209,0,0,0.4);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .dashboard-panel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .card {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .logout-btn {
+    top: 10px;
+    right: 10px;
+  }
+  
+  header {
+    padding-top: 40px;
+  }
+  
+  .card {
+    padding: 35px 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.1em;
+  }
+}
