@@ -1,0 +1,65 @@
+.relatorio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-relatorio {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    border-bottom: 4px solid #ccc;
+}
+
+.card-relatorio h3 { 
+    margin: 0 0 10px; 
+    color: #666; 
+    font-size: 1rem; 
+    text-transform: uppercase; 
+}
+
+.card-relatorio p { 
+    font-size: 2rem; 
+    font-weight: 700; 
+    margin: 0; 
+    color: #333; 
+}
+
+.card-money { 
+    border-color: #28a745; 
+}
+
+.card-money p { 
+    color: #28a745; 
+}
+
+.card-pendente { 
+    border-color: #ffc107; 
+}
+
+.card-pendente p { 
+    color: #d39e00; 
+}
+
+.card-aprovado { 
+    border-color: #17a2b8; 
+}
+
+.card-aprovado p { 
+    color: #17a2b8; 
+}
+
+.card-total { 
+    border-color: #333; 
+}
+
+.card-rejeitado { 
+    border-color: #dc3545; 
+}
+
+.card-rejeitado p { 
+    color: #dc3545; 
+}

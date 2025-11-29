@@ -26,7 +26,10 @@ require_once('sessao_admin.php');
         <a href="../logout.php" class="button-link">Sair</a>
     </div>
 
+
     <h2>PAINEL DE CONTROLE</h2>
+    
+    <?php include('../includes/mensagens.php'); ?>
 
     <section class="dashboard-panel">
         <a href="gerenciar_pedidos.php" class="card-link">

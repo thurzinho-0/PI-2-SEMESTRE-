@@ -1,151 +1,144 @@
- <?php 
-  require_once ("sessao_cliente.php");
+<?php
+require_once("sessao_cliente.php");
+require_once('../classes/Database.php');
+require_once('../classes/Produto.php');
+
+$database = new Database();
+$db = $database->getConnection();
+$produto = new Produto($db);
+
+$lista_produtos = $produto->listarDisponiveis();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cx Store Anúncios</title>
-<link rel="stylesheet" href="../assets/css/painelanuncio.css" />
-<!--
-  Este código foi desenvolvido com base na análise visual da imagem enviada ('image.jpg')
-  e também levando em conta boas práticas e inspirações encontradas em canais brasileiros de programação no YouTube,
-  que produzem conteúdos didáticos sobre HTML, CSS e dashboards para web.
-
-  Canais recomendados e usados como referência de aprendizado para este tipo de layout são:
-  - Curso em Vídeo (Gustavo Guanabara): https://www.youtube.com/@CursoemVideo
-  - Danki Code: https://www.youtube.com/@DankiCode
-  - Programação Web: https://www.youtube.com/@programacaoweb
-  - Filipe Deschamps: https://www.youtube.com/@FilipeDeschamps
-  - Rafaella Ballerini: https://www.youtube.com/@rafaellaballerini
-
-  As decisões de código, estrutura e estilo foram feitas pelo autor observando a imagem e utilizando conhecimentos adquiridos nesses canais.
--->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cx Store - Catálogo</title>
+  <link rel="stylesheet" href="../assets/css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
-<!-- ==============================
-     CABEÇALHO COM LOGO
-     ============================== -->
-<header>
-  <img src="assets/css/painelanuncio.css" alt="Cx Store Logo" />
-</header>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo-container">
+        <a href="home.php"><img src="../assets/imagens/Logo.jpg" alt="Logo Cx Store"></a>
+      </div>
 
-<!-- ==============================
-     ÍCONES FIXOS (Adicionar / Configurações / Usuário)
-     ============================== -->
-<div class="top-icons">
-  <!-- Ícone de adicionar novo produto -->
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-  </svg>
+      <nav class="nav-bar">
+        <div class="main-nav">
+          <ul>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="minhas_compras.php">Meus Pedidos</a></li>
+          </ul>
+        </div>
 
-  <!-- Ícone de configurações (ativo) -->
-  <svg class="active" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0-10v2m4-2l1.5 1.5m-9 9L7.5 17.5m8.5-4.5l1.5-1.5m-9-9L7 7"/>
-  </svg>
+        <div class="header-actions">
+          <a href="editardados.php" class="action-icon" title="Meu Perfil">
+            <i class="fas fa-user"></i> <span style="font-size: 0.8rem;">Olá, <?php echo $_SESSION['usuario']; ?></span>
+          </a>
+          <a href="#" class="cart-icon action-icon" aria-label="Ver carrinho">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <a href="../logout.php" class="action-icon" title="Sair">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </div>
 
-  <!-- Ícone de perfil do usuário -->
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 12a5 5 0 1 0-10 0 5 5 0 0 0 10 0zm0 1v7"/>
-  </svg>
-</div>
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+      </nav>
+    </div>
+  </header>
 
-<!-- ==============================
-     SEÇÃO DE ANÚNCIOS
-     ============================== -->
-<h2>ANÚNCIOS</h2>
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">Nova Coleção</h1>
+      <p class="hero-subtitle">Estilo autêntico. Qualidade incomparável.</p>
+      <a href="#catalogo" class="hero-btn">Ver Produtos</a>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
 
-<div class="table-container">
-<table>
-  <thead>
-    <tr>
-      <th>Nome do Produto</th>
-      <th>Imagem</th>
-      <th>Categoria</th>
-      <th>Preço</th>
-      <th>Data</th>
-      <th>Ação</th>
-      <th>Status</th>
-    </tr>
-  </thead>
+  <main>
+    <section class="featured-products" id="catalogo">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-tag">Nosso Estoque</span>
+          <h2>Catálogo Completo</h2>
+          <p class="section-subtitle">Confira todas as peças disponíveis</p>
+        </div>
 
-  <tbody>
-    <!-- Linha 1 -->
-    <tr>
-      <td>TRICOT SUFGANG YING YANG BLACK</td>
-      <td><img class="product-img" src="exemplocamiseta1.JPG" alt="Tricot Ying Yang Black Masculino" /></td>
-      <td>Masculino</td>
-      <td class="price">R$50,00</td>
-      <td class="date">09/10/2025</td>
-      <td>
-        <!-- Switch de status -->
-        <label class="status-switch">
-          <input type="checkbox" />
-          <span class="slider"></span>
-        </label>
-        <!-- Ícone de edição -->
-        <svg class="icon-edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5h6M6 19h6m-4-7h8"/>
-        </svg>
-      </td>
-      <td><span class="status-label inativo">Inativo</span></td>
-    </tr>
+        <div class="product-grid">
+          <?php if ($lista_produtos->num_rows == 0): ?>
+            <p style="grid-column: 1/-1; text-align: center;">Nenhum produto disponível no momento.</p>
+          <?php else: ?>
 
-    <!-- Linha 2 -->
-    <tr>
-      <td>TRICOT SUFGANG YING YANG BLACK</td>
-      <td><img class="product-img" src="https://i.imgur.com/VdMRBzA.png" alt="Tricot Ying Yang Black Feminino" /></td>
-      <td>Feminino</td>
-      <td class="price">R$309,90</td>
-      <td class="date">09/10/2025</td>
-      <td>
-        <label class="status-switch">
-          <input type="checkbox" checked />
-          <span class="slider"></span>
-        </label>
-        <svg class="icon-edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5h6M6 19h6m-4-7h8"/>
-        </svg>
-      </td>
-      <td><span class="status-label ativo">Ativo</span></td>
-    </tr>
-  </tbody>
-</table>
-</div>
+            <?php while ($item = $lista_produtos->fetch_assoc()): ?>
+              <?php
+              $produto->id = $item['id'];
+              $variacoes = $produto->listarVariacoes();
+              $id_variacao_padrao = 0;
 
-<!-- ==============================
-     SCRIPT PARA ATUALIZAR STATUS DINAMICAMENTE
-     ============================== -->
-<script>
-  // Ao carregar a página
-  document.addEventListener('DOMContentLoaded', function() {
-    const switches = document.querySelectorAll('.status-switch input[type="checkbox"]');
-    
-    switches.forEach(function(switchEl, index) {
-      const label = document.querySelectorAll('.status-label')[index];
+              if ($var = $variacoes->fetch_assoc()) {
+                $id_variacao_padrao = $var['id_variacao'];
+              }
 
-      // Função que muda o texto conforme o estado do switch
-      function updateLabel() {
-        if (switchEl.checked) {
-          label.textContent = 'Ativo';
-          label.className = 'status-label ativo';
-        } else {
-          label.textContent = 'Inativo';
-          label.className = 'status-label inativo';
-        }
-      }
+              $imagem = !empty($item['imagem']) ? "../assets/uploads/" . $item['imagem'] : "../assets/imagens/sem_foto.png";
+              ?>
 
-      // Quando o usuário clica no botão
-      switchEl.addEventListener('change', updateLabel);
+              <article class="product-card" data-id="<?= $id_variacao_padrao ?>">
+                <div class="product-image">
+                  <img src="<?= htmlspecialchars($imagem) ?>" alt="<?= htmlspecialchars($item['nome']) ?>" />
 
-      // Inicializa o estado ao abrir a página
-      updateLabel();
-    });
-  });
-</script>
+                  <div class="product-overlay">
+                    <a href="details.php?id=<?= $item['id'] ?>" class="quick-view-btn">
+                      <i class="fas fa-eye"></i> Ver Detalhes
+                    </a>
+                  </div>
+                </div>
 
+                <div class="product-info">
+                  <h3><?= htmlspecialchars($item['nome']) ?></h3>
+                  <p style="font-size: 0.9rem; color: #666;"><?= htmlspecialchars($item['nome_categoria']) ?></p>
+                  <p class="price">
+                    <span class="price-current">R$ <?= number_format($item['preco'], 2, ',', '.') ?></span>
+                  </p>
+                </div>
+
+                <?php if ($id_variacao_padrao > 0): ?>
+                  <button class="add-to-cart-btn" data-id="<?= $id_variacao_padrao ?>">
+                    <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+                  </button>
+                <?php else: ?>
+                  <button class="add-to-cart-btn" disabled style="background: #ccc; cursor: not-allowed;">
+                    Indisponível
+                  </button>
+                <?php endif; ?>
+
+              </article>
+
+            <?php endwhile; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="text-align: center; border: none;">
+        <p>© 2025 Cx Store. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="../assets/js/home.js"></script>
 </body>
+
 </html>

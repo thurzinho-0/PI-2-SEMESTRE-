@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 $mensagem_erro = ''; 
 
 if (isset($_GET['erro'])) {
@@ -6,7 +6,7 @@ if (isset($_GET['erro'])) {
         $mensagem_erro = "Usuário ou senha inválidos. Tente novamente.";
     }
 }
-?>  -->
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

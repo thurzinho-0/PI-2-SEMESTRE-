@@ -177,13 +177,19 @@ class Produto
     //Metodo de listagem de variações
     public function listarVariacoes()
     {
-        $query = "SELECT v.id as id_variacao, c.nome as nome_cor, t.nome as nome_tamanho FROM variacao_produto v LEFT JOIN cor c ON v.fk_cor_id = c.id LEFT JOIN tamanho t ON v.fk_tamanho_id = t.id WHERE v.fk_produto_anuncio_id = ?";
+        // Adicionei v.fk_cor_id e v.fk_tamanho_id na consulta
+        $query = "SELECT v.id as id_variacao, 
+                         v.fk_cor_id, v.fk_tamanho_id,
+                         c.nome as nome_cor, t.nome as nome_tamanho 
+                  FROM variacao_produto v 
+                  LEFT JOIN cor c ON v.fk_cor_id = c.id 
+                  LEFT JOIN tamanho t ON v.fk_tamanho_id = t.id 
+                  WHERE v.fk_produto_anuncio_id = ? AND v.disponivel = 1";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $this->id);
         $stmt->execute();
-        $resultado = $stmt->get_result();
-        return $resultado;
+        return $stmt->get_result();
     }
 
     //Metodo de adição de variação

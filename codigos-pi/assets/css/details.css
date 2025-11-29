@@ -3,20 +3,28 @@
    Define as cores e valores padrão do projeto
 ===================================================================== */
 :root {
-  --primary: #6f8b6f;           /* Cor primária (botão verde) */
-  --muted: #f1f1f1;             /* Cor de fundo suave */
-  --text: #111;                 /* Cor do texto principal */
-  --accent: #6b4a36;            /* Cor de destaque (marrom) */
-  --container: 1200px;          /* Largura máxima do container */
-  --cor-cinza: #e0e0e0;         /* Cor cinza para bordas */
-  --transicao-padrao: all 0.3s ease; /* Transição suave padrão */
+  --primary: #6f8b6f;
+  /* Cor primária (botão verde) */
+  --muted: #f1f1f1;
+  /* Cor de fundo suave */
+  --text: #111;
+  /* Cor do texto principal */
+  --accent: #6b4a36;
+  /* Cor de destaque (marrom) */
+  --container: 1200px;
+  /* Largura máxima do container */
+  --cor-cinza: #e0e0e0;
+  /* Cor cinza para bordas */
+  --transicao-padrao: all 0.3s ease;
+  /* Transição suave padrão */
 }
 
 /* =====================================================================
    RESET E ESTILOS GLOBAIS
 ===================================================================== */
 * {
-  box-sizing: border-box; /* Facilita cálculo de dimensões */
+  box-sizing: border-box;
+  /* Facilita cálculo de dimensões */
 }
 
 body {
@@ -42,7 +50,8 @@ body {
 .site-header {
   background: #fff;
   border-bottom: 1px solid #eee;
-  position: sticky;           /* Header fixo ao rolar */
+  position: sticky;
+  /* Header fixo ao rolar */
   top: 0;
   z-index: 1000;
 }
@@ -61,11 +70,13 @@ body {
   text-align: center;
   padding: 1rem 0;
   border-bottom: 1px solid var(--cor-cinza);
-  flex-shrink: 0;             /* Não encolhe em telas pequenas */
+  flex-shrink: 0;
+  /* Não encolhe em telas pequenas */
 }
 
 .logo-container img {
-  width: 180px;               /* Tamanho padrão da logo */
+  width: 180px;
+  /* Tamanho padrão da logo */
   height: auto;
   max-width: 100%;
   transition: var(--transicao-padrao);
@@ -73,7 +84,8 @@ body {
 }
 
 .logo-container img:hover {
-  transform: scale(1.05);     /* Efeito de zoom ao passar o mouse */
+  transform: scale(1.05);
+  /* Efeito de zoom ao passar o mouse */
 }
 
 /* ----- Navegação ----- */
@@ -81,7 +93,8 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
-  flex: 1;                    /* Ocupa espaço disponível */
+  flex: 1;
+  /* Ocupa espaço disponível */
 }
 
 .nav-bar .main-nav {
@@ -101,12 +114,14 @@ body {
 }
 
 .nav-bar .main-nav a:hover {
-  color: #6f8b6f;             /* Muda cor ao passar o mouse */
+  color: #6f8b6f;
+  /* Muda cor ao passar o mouse */
 }
 
 /* ----- Ações do header (perfil e carrinho) ----- */
 .header-actions {
-  margin-left: auto;          /* Empurra para a direita */
+  margin-left: auto;
+  /* Empurra para a direita */
   display: flex;
   gap: 16px;
   align-items: center;
@@ -156,7 +171,8 @@ body {
 }
 
 .breadcrumbs .sep {
-  margin: 0 8px;              /* Espaçamento do separador "/" */
+  margin: 0 8px;
+  /* Espaçamento do separador "/" */
 }
 
 /* =====================================================================
@@ -194,7 +210,8 @@ body {
 .main-image img {
   max-width: 100%;
   max-height: 600px;
-  object-fit: contain;        /* Mantém proporção da imagem */
+  object-fit: contain;
+  /* Mantém proporção da imagem */
   transition: opacity 0.15s ease;
 }
 
@@ -206,18 +223,21 @@ body {
   border: none;
   background: #fff;
   padding: 12px;
-  border-radius: 50%;         /* Botão redondo */
+  border-radius: 50%;
+  /* Botão redondo */
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
   transition: transform 0.2s;
 }
 
 .wish-btn:hover {
-  transform: scale(1.1);      /* Aumenta ao passar o mouse */
+  transform: scale(1.1);
+  /* Aumenta ao passar o mouse */
 }
 
 .wish-btn i {
-  color: #e74c3c;             /* Coração vermelho */
+  color: #e74c3c;
+  /* Coração vermelho */
   font-size: 18px;
 }
 
@@ -254,7 +274,8 @@ body {
 }
 
 .rating i {
-  color: #ffb400;             /* Estrelas douradas */
+  color: #ffb400;
+  /* Estrelas douradas */
   margin-right: 2px;
   font-size: 16px;
 }
@@ -315,7 +336,8 @@ body {
   border-radius: 8px;
   color: #4a7d4a;
   font-weight: 600;
-  width: max-content;         /* Largura ajustável ao conteúdo */
+  width: max-content;
+  /* Largura ajustável ao conteúdo */
   margin-bottom: 24px;
   font-size: 14px;
 }
@@ -358,10 +380,12 @@ body {
 
 .size-btn.active {
   border-color: var(--text);
-  background: #f6f6f6;        /* Fundo cinza quando selecionado */
+  background: #f6f6f6;
+  /* Fundo cinza quando selecionado */
 }
 
 /* ----- Seleção de cores (swatches) ----- */
+/* ----- Seleção de cores (Estilo Texto) ----- */
 .colors {
   display: flex;
   gap: 10px;
@@ -369,22 +393,30 @@ body {
   flex-wrap: wrap;
 }
 
+/* Agora a cor parece um botão de tamanho */
 .color-swatch {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 2px solid transparent;
+  border: 2px solid #ddd;
+  padding: 10px 16px;
+  background: #fff;
   cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.2s;
+  color: var(--text);
 }
 
 .color-swatch:hover {
-  transform: scale(1.05);
+  border-color: #999;
+  transform: translateY(-1px);
 }
 
+/* Estilo quando selecionado (Fundo cinza escuro, igual ao tamanho) */
 .color-swatch.selected {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;        /* Destaque quando selecionado */
+  border-color: var(--text);
+  background: #f6f6f6;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ----- Controles de quantidade ----- */
@@ -453,9 +485,11 @@ body {
 }
 
 .btn.add:hover {
-  background: #5f7a5f;        /* Verde mais escuro ao hover */
-  transform: translateY(-1px); /* Move para cima */
-  box-shadow: 0 4px 12px rgba(111,139,111,0.3);
+  background: #5f7a5f;
+  /* Verde mais escuro ao hover */
+  transform: translateY(-1px);
+  /* Move para cima */
+  box-shadow: 0 4px 12px rgba(111, 139, 111, 0.3);
 }
 
 /* Botão "Consultar" (preto) */
@@ -540,44 +574,48 @@ body {
 /* Tablets e telas médias */
 @media (max-width: 900px) {
   .product-detail {
-    flex-direction: column;   /* Empilha as colunas */
+    flex-direction: column;
+    /* Empilha as colunas */
     gap: 32px;
   }
-  
+
   .gallery-col,
   .info-col {
-    width: 100%;              /* Largura total */
+    width: 100%;
+    /* Largura total */
   }
-  
+
   .main-image {
     min-height: 400px;
     padding: 24px;
   }
-  
+
   .logo-container img {
-    width: 150px;             /* Logo menor em tablets */
+    width: 150px;
+    /* Logo menor em tablets */
   }
-  
+
   .nav-bar .main-nav {
     gap: 16px;
   }
-  
+
   .nav-bar .main-nav a {
     font-size: 14px;
   }
-  
+
   .product-title {
     font-size: 22px;
   }
-  
+
   .price-current {
     font-size: 28px;
   }
-  
+
   .actions {
-    flex-direction: column;   /* Botões empilhados */
+    flex-direction: column;
+    /* Botões empilhados */
   }
-  
+
   .btn {
     width: 100%;
   }
@@ -588,27 +626,30 @@ body {
   .main-image {
     min-height: 320px;
   }
-  
+
   .header-inner {
     flex-wrap: wrap;
   }
-  
+
   .logo-container {
     width: 100%;
-    order: -1;                /* Logo aparece primeiro */
+    order: -1;
+    /* Logo aparece primeiro */
   }
-  
+
   .logo-container img {
-    width: 130px;             /* Logo ainda menor em mobile */
+    width: 130px;
+    /* Logo ainda menor em mobile */
   }
-  
+
   .nav-bar {
     order: 3;
     width: 100%;
   }
-  
+
   .nav-bar .main-nav {
     width: 100%;
-    justify-content: space-around; /* Distribui menu uniformemente */
+    justify-content: space-around;
+    /* Distribui menu uniformemente */
   }
 }

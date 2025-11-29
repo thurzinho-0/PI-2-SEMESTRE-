@@ -86,6 +86,13 @@ return [
     'id_vazio' => 'Campo ID vazio',
     'erro_desconhecido' => 'Erro desconhecido.',
 
+    //Login 
+    
+    //Sucesso
+    'login' => 'Usuário logado com sucesso.',
+
+    //Erros
+    'falha_login' => 'Falha ao realizar login.'
 
 
 ];
