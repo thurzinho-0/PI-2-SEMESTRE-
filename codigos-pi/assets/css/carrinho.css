@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+}
+
+#logo {
+    width: 10%;
+    height: 130px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    margin: 0 2%;
+}
+
+#lista_produtos_carrinho {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);   
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    flex-direction: row;
+}
+
+.item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    /* margin-right: 15px; */
+}
+
+.item-info {
+    flex-grow: 1;
+    margin-left: 2%;
+}
+
+.item-nome {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.item-preco {
+    color: #555;
+}
+
+.item-qtd input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-remover {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.btn-remover:hover {
+    background-color: #c0392b;
+}
+
+#resumo_compra {
+    border: 1px solid #ddd;
+    width: 30%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);    
+}
+
+.linha-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#resumo_compra input {
+    width: 130px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.botoes-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btn {
+    /* width: 50%; */
+    flex-grow: 1;
+    height: 8vh;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.finalizar {
+    background-color: green;
+}
+
+.continuar {
+    background-color: gray;
+    /* margin-top: -8%; */
+}

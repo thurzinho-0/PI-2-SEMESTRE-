@@ -103,7 +103,6 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-
   .card {
     padding: 40px 20px;
   }
@@ -113,7 +112,6 @@ h2 {
   .dashboard-panel {
     grid-template-columns: 1fr;
   }
-
   .logout-btn {
     top: 10px;
     right: 10px;

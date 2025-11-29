@@ -177,7 +177,6 @@ class Produto
     //Metodo de listagem de variações
     public function listarVariacoes()
     {
-        // Adicionei v.fk_cor_id e v.fk_tamanho_id na consulta
         $query = "SELECT v.id as id_variacao, 
                          v.fk_cor_id, v.fk_tamanho_id,
                          c.nome as nome_cor, t.nome as nome_tamanho 
